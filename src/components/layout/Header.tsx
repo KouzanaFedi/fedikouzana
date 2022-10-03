@@ -27,12 +27,14 @@ const Header = () => {
         }`}
       >
         <Link href={"/"}>
-          <a className="flex">
-            <img className="w-40 md:w-64" src={"/logo.svg"} />
-          </a>
+          <img className="w-40 md:w-64 cursor-pointer" src={"/logo.svg"} />
         </Link>
-        <Link href={Settings.LINKEDIN_URI}>
-          <a target="_blank" className="flex items-center space-x-4">
+        <Link href={Settings.LINKEDIN_URI} rel="noreferrer">
+          <a
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center space-x-4"
+          >
             <span className="text-fk-white font-medium">Get in touch</span>
             <SiLinkedin size={24} className="text-fk-white" />
           </a>
