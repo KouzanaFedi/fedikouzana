@@ -2,6 +2,7 @@ import { SiLinkedin } from "react-icons/si";
 import * as Settings from "@/utils/settings";
 import { useScrollPosition } from "@/hooks/useScrollPosition";
 import React from "react";
+import Link from "next/link";
 
 const Header = () => {
   const [headerWithBg, setHeaderWithBg] = React.useState<boolean>(false);
@@ -25,17 +26,17 @@ const Header = () => {
           headerWithBg ? "" : "border-b"
         }`}
       >
-        <a className="flex" href="/">
-          <img className="w-40 md:w-64" src={"/logo.svg"} />
-        </a>
-        <a
-          href={Settings.LINKEDIN_URI}
-          target="_blank"
-          className="flex items-center space-x-4"
-        >
-          <span className="text-fk-white font-medium">Get in touch</span>
-          <SiLinkedin size={24} className="text-fk-white" />
-        </a>
+        <Link href={"/"}>
+          <a className="flex">
+            <img className="w-40 md:w-64" src={"/logo.svg"} />
+          </a>
+        </Link>
+        <Link href={Settings.LINKEDIN_URI}>
+          <a target="_blank" className="flex items-center space-x-4">
+            <span className="text-fk-white font-medium">Get in touch</span>
+            <SiLinkedin size={24} className="text-fk-white" />
+          </a>
+        </Link>
       </div>
     </header>
   );

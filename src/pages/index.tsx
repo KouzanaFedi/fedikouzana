@@ -33,16 +33,15 @@ export default function Home() {
                 applications
               </p>
               <div className="flex flex-col space-y-4 !mt-12 justify-center items-center md:flex-row md:space-x-8 md:space-y-0 z-10 lg:justify-start">
-                <a
-                  href="#projects"
-                  className="group flex items-center space-x-4 font-bold bg-gradient-to-l from-fk-pink via-fk-orange to-fk-purple px-10 py-4 text-fk-gray text-lg rounded-2xl duration-700 transition-all hover:animate-hue-rotate"
-                >
-                  <span>Check my work</span>
-                  <FiChevronsDown
-                    className="group-hover:animate-fk-bounce-animation"
-                    size={24}
-                  />
-                </a>
+                <Link href="#projects">
+                  <a className="group flex items-center space-x-4 font-bold bg-gradient-to-l from-fk-pink via-fk-orange to-fk-purple px-10 py-4 text-fk-gray text-lg rounded-2xl duration-700 transition-all hover:animate-hue-rotate">
+                    <span>Check my work</span>
+                    <FiChevronsDown
+                      className="group-hover:animate-fk-bounce-animation"
+                      size={24}
+                    />
+                  </a>
+                </Link>
                 <button className="custom-gradiant group relative overflow-hidden font-bold text-lg  p-[2px] text-white rounded-2xl transition-colors before:transition-transform before:content-[''] before:h-full before:w-full before:bg-gradient-to-b before:from-fk-purple before:to-fk-orange before:absolute before:bottom-full before:left-0 hover:before:translate-y-full before:duration-500 hover:text-fk-gray hover:before:animate-hue-rotate-middle">
                   <div className="flex items-center space-x-4 w-full h-full px-10 py-4 rounded-2xl bg-fk-gray z-10 group-hover:transparent">
                     <span className="group-hover:z-30">My resume</span>
