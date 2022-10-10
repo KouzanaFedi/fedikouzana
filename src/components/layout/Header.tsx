@@ -3,6 +3,7 @@ import * as Settings from "@/utils/settings";
 import { useScrollPosition } from "@/hooks/useScrollPosition";
 import React from "react";
 import Link from "next/link";
+import MenuItem from "../MenuItem";
 
 const Header = () => {
   const [headerWithBg, setHeaderWithBg] = React.useState<boolean>(false);
@@ -21,24 +22,16 @@ const Header = () => {
         headerWithBg ? "bg-fk-darkGray/90 backdrop-blur-sm" : ""
       }`}
     >
-      <div
-        className={`container mx-auto flex justify-between px-4 py-6 border-fk-orange ${
-          headerWithBg ? "" : "border-b"
-        }`}
-      >
+      <div className="container mx-auto flex justify-between items-center px-4 py-6">
         <Link href={"/"}>
           <img className="w-40 md:w-64 cursor-pointer" src={"/logo.svg"} />
         </Link>
-        <Link href={Settings.LINKEDIN_URI} rel="noreferrer">
-          <a
-            target="_blank"
-            rel="noreferrer"
-            className="flex items-center space-x-4"
-          >
-            <span className="text-fk-white font-medium">Get in touch</span>
-            <SiLinkedin size={24} className="text-fk-white" />
-          </a>
-        </Link>
+        <ul className="flex gap-8">
+          <MenuItem label="About me" link="/#about-me" />
+          <MenuItem label="Portfolio" link="/#projects" />
+          <MenuItem label="Carrer" link="/#carrer" />
+          <MenuItem label="Contact" link="#contact-me" />
+        </ul>
       </div>
     </header>
   );

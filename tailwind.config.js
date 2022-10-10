@@ -8,8 +8,8 @@ module.exports = {
         "fk-pink": "#FF529B",
         "fk-purple": "#B473FF",
         "fk-white": "#FFFFFF",
-        "fk-darkGray": "#363741",
-        "fk-gray": "#26272f",
+        "fk-darkGray": "#101524",
+        "fk-gray": "#090c14",
         "fk-white-lighter": "#E1E1E1",
       },
       backgroundImage: {
