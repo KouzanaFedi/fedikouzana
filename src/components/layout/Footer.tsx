@@ -14,28 +14,26 @@ const Footer = () => {
               Let's Collaborate And Work Together!
             </h2>
             <div className="flex flex-col gap-4 md:flex-row">
-              <MagneticButton>
+              <MagneticButton variantColor="dark">
                 <Link href={Settings.LINKEDIN_URI} rel="noreferrer">
                   <a
                     target="_blank"
                     rel="noreferrer"
-                    className="flex items-center font-bold text-lg lg:text-xl space-x-4 bg-fk-darkGray px-10 py-4 text-white rounded-lg "
+                    className="flex items-center gap-4 px-10 py-4"
                   >
-                    <span className="text-fk-white font-medium">
-                      Get in touch
-                    </span>
-                    <SiLinkedin size={24} className="text-fk-white" />
+                    <span>Get in touch</span>
+                    <SiLinkedin size={24} />
                   </a>
                 </Link>
               </MagneticButton>
-              <Link href={`mailto:${Settings.EMAIL}`}>
-                <a className="flex items-center font-bold text-lg lg:text-xl space-x-4 bg-fk-gray/80 px-10 py-4 text-white rounded-lg ">
-                  <span className="text-fk-white font-medium">
-                    Leave me an e-mail
-                  </span>
-                  <HiOutlineMail size={24} className="text-fk-white" />
-                </a>
-              </Link>
+              <MagneticButton variantColor="dark" variant="outlined">
+                <Link href={`mailto:${Settings.EMAIL}`}>
+                  <a className="flex items-center gap-4 px-10 py-4">
+                    <span>Leave me an e-mail</span>
+                    <HiOutlineMail size={24} />
+                  </a>
+                </Link>
+              </MagneticButton>
             </div>
           </div>
         </div>

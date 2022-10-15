@@ -5,21 +5,70 @@ import React from "react";
 type Props = {
   variant?: "contained" | "outlined";
   children: React.ReactNode;
+  variantColor?: "green" | "dark";
 };
 
-const MagneticButton = ({ variant = "contained", children }: Props) => {
+type ColorPalette = {
+  mainColor: string;
+  hoverColor: string;
+  textColor: string;
+  textColorHover: string;
+};
+
+type ButtonColorPalette = {
+  contained: ColorPalette;
+  outlined: ColorPalette;
+};
+
+const MagneticButton = ({
+  variant = "contained",
+  variantColor = "green",
+  children,
+}: Props) => {
   const overlayRef = React.useRef<HTMLDivElement>();
   const [firstHover, setFirstHover] = React.useState(true);
   const ref = React.useRef<HTMLDivElement>();
+
+  const greenVarient: ButtonColorPalette = {
+    contained: {
+      hoverColor: "fk-green-darker",
+      mainColor: "fk-green",
+      textColor: "fk-gray",
+      textColorHover: "fk-gray",
+    },
+    outlined: {
+      hoverColor: "fk-green-darker",
+      mainColor: "fk-gray",
+      textColor: "fk-white",
+      textColorHover: "fk-white",
+    },
+  };
+
+  const darkVarient: ButtonColorPalette = {
+    contained: {
+      hoverColor: "fk-white",
+      mainColor: "fk-gray",
+      textColor: "fk-white",
+      textColorHover: "fk-gray",
+    },
+    outlined: {
+      hoverColor: "fk-white",
+      mainColor: "fk-gray",
+      textColor: "fk-white",
+      textColorHover: "fk-gray",
+    },
+  };
+
+  const currentPalette = variantColor === "green" ? greenVarient : darkVarient;
 
   return (
     <div
       ref={ref}
       className={`${
         variant === "contained"
-          ? "bg-fk-green text-fk-gray"
-          : "border-fk-green border-2"
-      } px-10 py-4 group relative overflow-hidden font-bold text-lg p-[2px] z-20 text-white rounded-lg cursor-pointer will-change-transform special-element`}
+          ? `bg-${currentPalette.contained.mainColor} text-${currentPalette.contained.textColor} hover:text-${currentPalette.contained.textColorHover}`
+          : `border-${currentPalette.outlined.hoverColor} text-${currentPalette.outlined.textColor} hover:text-${currentPalette.outlined.textColorHover} border-2`
+      } group relative overflow-hidden font-bold text-lg p-[2px] z-20 rounded-lg cursor-pointer will-change-transform special-element`}
       onMouseOver={({ clientX, clientY }) => {
         setFirstHover(false);
         if (ref.current) {
@@ -67,13 +116,11 @@ const MagneticButton = ({ variant = "contained", children }: Props) => {
           className={`${
             firstHover
               ? "bg-transparent"
-              : variant === "contained"
-              ? "bg-fk-green-darker"
-              : "bg-fk-green"
+              : `bg-${currentPalette.contained.hoverColor}`
           } h-[200%] w-[150%] rounded-[50%] -z-10 absolute -top-1/2 -left-1/4`}
         />
         <div className="flex items-center space-x-4 w-full h-full rounded-lg z-10 group-hover:transparent">
-          <span className="flex items-center gap-x-2 z-10">{children}</span>
+          <span className="z-10">{children}</span>
         </div>
       </>
     </div>

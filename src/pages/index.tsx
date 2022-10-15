@@ -33,7 +33,7 @@ export default function Home() {
               <div className="flex flex-col space-y-4 !mt-12 justify-center items-center md:flex-row md:space-x-8 md:space-y-0 z-10 lg:justify-start">
                 <MagneticButton>
                   <Link href="#projects">
-                    <a className="flex items-center gap-4">
+                    <a className="flex items-center gap-4 px-10 py-4">
                       <span>Check my work</span>
                       <FiChevronsDown
                         className="group-hover:animate-fk-bounce-animation"
@@ -44,8 +44,10 @@ export default function Home() {
                 </MagneticButton>
 
                 <MagneticButton variant="outlined">
-                  <span className="group-hover:z-30">My resume</span>
-                  <FiDownload className="group-hover:z-30" size={24} />
+                  <div className="flex items-center gap-4 px-10 py-4">
+                    <span className="group-hover:z-30">My resume</span>
+                    <FiDownload className="group-hover:z-30" size={24} />
+                  </div>
                 </MagneticButton>
               </div>
             </div>
