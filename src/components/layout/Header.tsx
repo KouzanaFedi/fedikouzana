@@ -29,7 +29,7 @@ const Header = () => {
         <ul className="flex gap-8">
           <MenuItem label="About me" link="/#about-me" />
           <MenuItem label="Portfolio" link="/#projects" />
-          <MenuItem label="Carrer" link="/#carrer" />
+          <MenuItem label="Career" link="/#carrer" />
           <MenuItem label="Contact" link="#contact-me" />
         </ul>
       </div>

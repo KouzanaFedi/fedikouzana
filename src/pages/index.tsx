@@ -16,10 +16,9 @@ export default function Home() {
   return (
     <>
       <Layout>
-        <img
-          src="/dark-bg-mesh2.png"
-          className="absolute z-0 -top-40 right-0 overflow-hidden select-none"
-        />
+        <div className="absolute top-0 md:-top-40 z-0 right-0 overflow-hidden select-none">
+          <img src="/desktop-dark.png" className="" />
+        </div>
         <section id="greeting-block" className="pt-20 relative">
           <div className="container px-4 mx-auto overflow-x-clip flex items-center mt-14 md:mt-28 md:mb-28 relative md:overflow-visible">
             <div className="w-full space-y-6 lg:w-2/3">
@@ -50,9 +49,6 @@ export default function Home() {
                 </MagneticButton>
               </div>
             </div>
-            <div className="hidden w-1/3 justify-center lg:flex">
-              <img src="/avatar.png" alt="avatar" className="select-none" />
-            </div>
           </div>
           <div className="mx-auto container flex flex-col gap-y-12 items-center p-4 md:p-2 gap-x-8 lg:flex-row-reverse lg:gap-y-0 xl:gap-x-24">
             <div className="w-full lg:w-1/2 flex flex-col gap-y-8">
@@ -64,10 +60,15 @@ export default function Home() {
                 Hello and welcome to my portfolio! My name is Fedi, and I'm a
                 passionate programmer and gamer.
                 <br /> For web programming, I mainly use the{" "}
-                <span className="text-fk-green font-black special-element">MERN</span> stack as
-                well as using frameworks like Next.js Nest.js and TailwindCSS,
-                while for mobile development, I work with{" "}
-                <span className="text-fk-green font-black special-element">Flutter</span>.
+                <span className="text-fk-green font-black special-element">
+                  MERN
+                </span>{" "}
+                stack as well as using frameworks like Next.js Nest.js and
+                TailwindCSS, while for mobile development, I work with{" "}
+                <span className="text-fk-green font-black special-element">
+                  Flutter
+                </span>
+                .
               </p>
             </div>
             <div className="w-full flex flex-col lg:flex-col md:flex-row lg:w-1/2 gap-6">

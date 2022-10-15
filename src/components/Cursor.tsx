@@ -31,7 +31,7 @@ const Cursor = () => {
     if (cursorEnlarged.current) {
       innerRef.current.style.transform = "translate(-50%, -50%) scale(0, 0)";
       outerRef.current.style.transform = "translate(-50%, -50%) scale(2, 2)";
-      outerRef.current.style.backgroundColor = "#75d9b3CF";
+      outerRef.current.style.backgroundColor = "#75d9b3";
       outerRef.current.style.mixBlendMode = "exclusion";
       outerRef.current.style.border = "0";
     } else {
