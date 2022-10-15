@@ -3,22 +3,29 @@ import gsap, { Power2 } from "gsap";
 import React from "react";
 
 type Props = {
-  as?: "button" | "a";
+  variant?: "contained" | "outlined";
+  children: React.ReactNode;
 };
 
-const MagneticButton = ({}: Props) => {
-  const overlayRef = React.useRef();
-  const buttonRef = React.useRef<HTMLButtonElement>();
+const MagneticButton = ({ variant = "contained", children }: Props) => {
+  const overlayRef = React.useRef<HTMLDivElement>();
+  const [firstHover, setFirstHover] = React.useState(true);
+  const ref = React.useRef<HTMLDivElement>();
 
   return (
-    <button
-      ref={buttonRef}
-      className="px-10 py-4 bg-fk-purple group relative overflow-hidden font-bold text-lg p-[2px] text-white rounded-lg will-change-transform"
+    <div
+      ref={ref}
+      className={`${
+        variant === "contained"
+          ? "bg-fk-green text-fk-gray"
+          : "border-fk-green border-2"
+      } px-10 py-4 group relative overflow-hidden font-bold text-lg p-[2px] z-20 text-white rounded-lg cursor-pointer will-change-transform special-element`}
       onMouseOver={({ clientX, clientY }) => {
-        if (buttonRef.current) {
+        setFirstHover(false);
+        if (ref.current) {
           magneticEffect(
-            buttonRef.current,
-            buttonRef.current.children[1] as HTMLElement,
+            ref.current,
+            ref.current.children[1] as HTMLElement,
             clientX,
             clientY
           );
@@ -38,10 +45,10 @@ const MagneticButton = ({}: Props) => {
         }
       }}
       onMouseLeave={() => {
-        if (buttonRef.current) {
+        if (ref.current) {
           resetMagneticEffect(
-            buttonRef.current,
-            buttonRef.current.children[1] as HTMLElement
+            ref.current,
+            ref.current.children[1] as HTMLElement
           );
         }
         // overlay animation enter
@@ -57,13 +64,19 @@ const MagneticButton = ({}: Props) => {
       <>
         <div
           ref={overlayRef}
-          className="h-[200%] w-[150%] rounded-[50%] z-0 bg-[#9162c7] absolute -top-1/2 -left-1/4"
+          className={`${
+            firstHover
+              ? "bg-transparent"
+              : variant === "contained"
+              ? "bg-fk-green-darker"
+              : "bg-fk-green"
+          } h-[200%] w-[150%] rounded-[50%] -z-10 absolute -top-1/2 -left-1/4`}
         />
         <div className="flex items-center space-x-4 w-full h-full rounded-lg z-10 group-hover:transparent">
-          <span className="z-10">My resume</span>
+          <span className="flex items-center gap-x-2 z-10">{children}</span>
         </div>
       </>
-    </button>
+    </div>
   );
 };
 export default MagneticButton;

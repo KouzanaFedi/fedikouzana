@@ -16,8 +16,6 @@ const MenuItem = ({ label, link }: Props) => {
         className="group"
         ref={tagRef}
         onMouseOver={({ clientX, clientY }) => {
-          console.log(tagRef.current);
-          console.log(tagRef.current.children[0]);
           if (tagRef.current) {
             magneticEffect(
               tagRef.current,

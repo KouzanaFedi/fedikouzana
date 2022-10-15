@@ -4,16 +4,16 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "fk-orange": "#FFCC95",
-        "fk-pink": "#FF529B",
-        "fk-purple": "#B473FF",
+        "fk-green": "#75D9B3",
+        "fk-green-darker": "#59a588",
         "fk-white": "#FFFFFF",
-        "fk-darkGray": "#101524",
+        "fk-darkGray": "#151A28",
         "fk-gray": "#090c14",
-        "fk-white-lighter": "#E1E1E1",
+        "fk-white-lighter": "#F9F5FF",
       },
       backgroundImage: {
         mesh2: "url('/mesh-2.webp')",
+        "mesh-dark": "url(/dark-bg-mesh.svg)",
       },
       fontFamily: {
         main: ["nunito sans", "sans-serif"],
