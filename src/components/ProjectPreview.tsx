@@ -23,7 +23,7 @@ const ProjectPreview = () => {
 
       rootRef.current.style.transform = `
       perspective(1000px)
-      scale3d(1.07, 1.07, 1.07)
+      scale3d(1.04, 1.04, 1.04)
       rotate3d(
         ${center.y / 100},
         ${-center.x / 100},
