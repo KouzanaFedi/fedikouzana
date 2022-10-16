@@ -28,7 +28,7 @@ const ProjectPreview = () => {
         ${center.y / 100},
         ${-center.x / 100},
         0,
-        ${Math.log(distance)}deg
+        ${Math.log(distance) * 4}deg
         )
         `;
     }
