@@ -5,9 +5,10 @@ import React from "react";
 type Props = {
   variant?: "contained" | "outlined";
   children: React.ReactNode;
+  variantColor?: "green" | "dark";
 };
 
-const MagneticButton = ({ variant = "contained", children }: Props) => {
+const MagneticButtonSecondary = ({ variant = "contained", children }: Props) => {
   const overlayRef = React.useRef<HTMLDivElement>();
   const [firstHover, setFirstHover] = React.useState(true);
   const ref = React.useRef<HTMLDivElement>();
@@ -17,8 +18,8 @@ const MagneticButton = ({ variant = "contained", children }: Props) => {
       ref={ref}
       className={`${
         variant === "contained"
-          ? `bg-fk-green text-fk-gray hover:text-fk-gray`
-          : `border-fk-green-darker text-fk-white hover:text-fk-white border-2`
+          ? `bg-fk-gray text-fk-white hover:text-fk-gray`
+          : `border-fk-white text-fk-white hover:text-fk-gray border-2`
       } group relative overflow-hidden font-bold text-lg p-[2px] z-20 rounded-lg cursor-pointer will-change-transform special-element`}
       onMouseOver={({ clientX, clientY }) => {
         setFirstHover(false);
@@ -65,7 +66,7 @@ const MagneticButton = ({ variant = "contained", children }: Props) => {
         <div
           ref={overlayRef}
           className={`${
-            firstHover ? "bg-transparent" : `bg-fk-green-darker`
+            firstHover ? "bg-transparent" : `bg-fk-white`
           } h-[200%] w-[150%] rounded-[50%] -z-10 absolute -top-1/2 -left-1/4`}
         />
         <div className="flex items-center space-x-4 w-full h-full rounded-lg group-hover:transparent">
@@ -75,4 +76,4 @@ const MagneticButton = ({ variant = "contained", children }: Props) => {
     </div>
   );
 };
-export default MagneticButton;
+export default MagneticButtonSecondary;

@@ -1,9 +1,9 @@
 import {
-  FiChevronsDown,
+  FiChevronDown,
+  FiChevronRight,
   FiChevronsRight,
   FiDownload,
   FiMonitor,
-  FiPlus,
   FiSmartphone,
 } from "react-icons/fi";
 import Layout from "@/components/layout/Layout";
@@ -11,31 +11,31 @@ import ProjectPreview from "@/components/ProjectPreview";
 import Link from "next/link";
 import VerticaleTimeLine from "@/components/VerticalTimeLine";
 import MagneticButton from "@/components/MagneticButton";
+import InforCard from "@/components/InfoCard";
 
 export default function Home() {
   return (
     <>
       <Layout>
-        <div className="absolute top-0 md:-top-40 z-0 right-0 overflow-hidden select-none">
-          <img src="/desktop-dark.png" className="" />
+        <div className="absolute top-0 md:-top-80 md:-right-40 z-0 right-0 overflow-hidden select-none">
+          <img src="/desktop-dark.png" />
         </div>
         <section id="greeting-block" className="pt-20 relative">
-          <div className="container px-4 mx-auto overflow-x-clip flex items-center mt-14 md:mt-28 md:mb-28 relative md:overflow-visible">
-            <div className="w-full space-y-6 lg:w-2/3">
-              <h1 className="text-white text-2xl md:text-3xl font-bold font-header z-10">
-                Greetings, I’m Fedi!
+          <div className="container px-4 mx-auto overflow-x-clip flex items-center mt-14 md:mt-28 md:mb-36 relative md:overflow-visible">
+            <div className="w-full space-y-6">
+              <h1 className="text-white text-center text-2xl md:text-3xl font-bold font-header z-10">
+                Greetings, I’m Fedi! Full-stack web developer.
               </h1>
-              <p className="text-4xl md:text-6xl font-header font-bold text-fk-white max-w-4xl z-10 lg:text-start">
-                Building <span className="text-fk-green">web based</span>{" "}
-                solutions and <span className="text-fk-green">mobile</span>{" "}
+              <p className="text-4xl text-center md:text-5xl font-header font-bold text-fk-white z-10">
+                I create <span className="text-fk-green">web based</span>{" "}
                 applications.
               </p>
-              <div className="flex flex-col space-y-4 !mt-12 justify-center items-center md:flex-row md:space-x-8 md:space-y-0 z-10 lg:justify-start">
+              <div className="flex flex-col space-y-4 justify-center items-center md:flex-row md:space-x-8 md:space-y-0 z-10">
                 <MagneticButton>
                   <Link href="#projects">
                     <a className="flex items-center gap-4 px-10 py-4">
                       <span>Check my work</span>
-                      <FiChevronsDown
+                      <FiChevronDown
                         className="group-hover:animate-fk-bounce-animation"
                         size={24}
                       />
@@ -74,40 +74,20 @@ export default function Home() {
               </p>
             </div>
             <div className="w-full flex flex-col lg:flex-col md:flex-row lg:w-1/2 gap-6">
-              <div className="special-element md:w-1/2 lg:w-full flex flex-col gap-y-4 bg-fk-darkGray rounded-[32px] px-8 py-6">
-                <div className="flex justify-between items-center">
-                  <div className="flex gap-x-4 items-center">
-                    <div className="rounded-full text-fk-white bg-fk-green p-2">
-                      <FiMonitor size={24} />
-                    </div>
-                    <h3 className="font-bold text-2xl text-fk-green">
-                      Website development
-                    </h3>
-                  </div>
-                </div>
-                <p className="text-fk-white">
-                  Created with React, Vanilla HTML and CSS or Even WordPress.
-                  Landing pages? Dashboards? plateforms? You name it, the choice
-                  is yours. Performance and responsive design garenteed.
-                </p>
-              </div>
-              <div className="special-element md:w-1/2 lg:w-full flex flex-col gap-y-4 bg-fk-darkGray rounded-[32px] px-8 py-6">
-                <div className="flex justify-between items-center h-[60px]">
-                  <div className="flex gap-x-4 items-center">
-                    <div className="rounded-full text-fk-white bg-fk-green p-2">
-                      <FiSmartphone size={24} />
-                    </div>
-                    <h3 className="font-bold text-2xl text-fk-green">
-                      Mobile development
-                    </h3>
-                  </div>
-                </div>
-                <p className="text-fk-white">
-                  Mobile application created with Flutter. Performance and
-                  smooth running apps garenteed. Currently building only on
-                  Android; untill I get my MacBook Pro 🤞.
-                </p>
-              </div>
+              <InforCard
+                Icon={FiMonitor}
+                title={"Website development"}
+                content={
+                  "Created with React, Vanilla HTML and CSS or Even WordPress. Landing pages? Dashboards? plateforms? You name it, the choice is yours. Performance and responsive design garenteed."
+                }
+              />
+              <InforCard
+                Icon={FiSmartphone}
+                title={"Mobile development"}
+                content={
+                  "Mobile application created with Flutter. Performance and smooth running apps garenteed. Currently building only on Android; untill I get my MacBook Pro 🤞."
+                }
+              />
             </div>
           </div>
         </section>
@@ -116,20 +96,20 @@ export default function Home() {
             <h2 className="text-fk-white text-5xl font-bold">
               Featured Projects
             </h2>
-            <div className="mx-auto grid grid-cols-3 gap-6 mt-12 mb-20">
-              {[1, 2, 3, 4, 5].map((num) => (
+            <div className="mx-auto grid max-w-7xl grid-cols-2 gap-28 mt-16 mb-20">
+              {[1, 2, 3, 4].map((num) => (
                 <ProjectPreview key={num} />
               ))}
-              <div className="flex justify-center items-center">
-                <MagneticButton>
-                  <Link href="/projects">
-                    <a className="flex items-center gap-4 text-fk-gray">
-                      <span>See more</span>
-                      <FiChevronsRight size={24} className="" />
-                    </a>
-                  </Link>
-                </MagneticButton>
-              </div>
+            </div>
+            <div className="flex justify-center items-center">
+              <MagneticButton>
+                <Link href="/projects">
+                  <a className="flex items-center gap-4 text-fk-gray px-10 py-4">
+                    <span>See more projects</span>
+                    <FiChevronRight size={24} />
+                  </a>
+                </Link>
+              </MagneticButton>
             </div>
           </div>
         </section>

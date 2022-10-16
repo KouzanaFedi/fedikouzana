@@ -3,6 +3,7 @@ import Link from "next/link";
 import { SiLinkedin } from "react-icons/si";
 import { HiOutlineMail } from "react-icons/hi";
 import MagneticButton from "../MagneticButton";
+import MagneticButtonSecondary from "../MagneticButtonSecondary";
 
 const Footer = () => {
   return (
@@ -14,7 +15,7 @@ const Footer = () => {
               Let's Collaborate And Work Together!
             </h2>
             <div className="flex flex-col gap-4 md:flex-row">
-              <MagneticButton variantColor="dark">
+              <MagneticButtonSecondary>
                 <Link href={Settings.LINKEDIN_URI} rel="noreferrer">
                   <a
                     target="_blank"
@@ -25,15 +26,15 @@ const Footer = () => {
                     <SiLinkedin size={24} />
                   </a>
                 </Link>
-              </MagneticButton>
-              <MagneticButton variantColor="dark" variant="outlined">
+              </MagneticButtonSecondary>
+              <MagneticButtonSecondary variant="outlined">
                 <Link href={`mailto:${Settings.EMAIL}`}>
                   <a className="flex items-center gap-4 px-10 py-4">
                     <span>Leave me an e-mail</span>
                     <HiOutlineMail size={24} />
                   </a>
                 </Link>
-              </MagneticButton>
+              </MagneticButtonSecondary>
             </div>
           </div>
         </div>

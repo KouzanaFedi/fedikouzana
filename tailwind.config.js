@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
@@ -9,7 +10,7 @@ module.exports = {
         "fk-white": "#FFFFFF",
         "fk-darkGray": "#151A28",
         "fk-gray": "#090c14",
-        "fk-white-lighter": "#F9F5FF",
+        "fk-white-lighter": "#A5A5A5",
       },
       backgroundImage: {
         mesh2: "url('/mesh-2.webp')",

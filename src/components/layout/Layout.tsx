@@ -22,9 +22,9 @@ const Layout = ({ children }: Props) => {
     <>
       <Header />
       {children}
-      <button
+      <div
         id="back-to-top"
-        className={`z-50 fixed bottom-4 md:bottom-8 bg-fk-darkGray transition-transform p-4 rounded-full -right-24 ${
+        className={`cursor-pointer z-50 fixed bottom-4 md:bottom-8 bg-fk-darkGray transition-transform p-4 rounded-full -right-24 ${
           showBackToTop ? "-translate-x-28 md:-translate-x-32" : ""
         } shadow-md group`}
         onClick={() => {
@@ -40,7 +40,7 @@ const Layout = ({ children }: Props) => {
           className="group-hover:animate-fk-bounce-animation text-fk-white"
           size={24}
         />
-      </button>
+      </div>
       <Footer />
     </>
   );
