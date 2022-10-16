@@ -14,8 +14,10 @@ function MyApp({ Component, pageProps }: AppProps) {
     const theme = localStorage.getItem(KEYS.THEME);
     if (!theme) {
       localStorage.setItem(KEYS.THEME, THEMES.DARK);
+      document.body.classList.add("dark");
     } else {
       if (theme === THEMES.DARK) document.body.classList.add("dark");
+      else document.body.classList.remove("dark");
     }
   }, []);
 
