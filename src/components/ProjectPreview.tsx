@@ -6,9 +6,14 @@ const ProjectPreview = () => {
   const [hover, setHover] = React.useState(false);
   const rootRef = React.useRef<HTMLDivElement>();
   const bounds = React.useRef<DOMRect>();
+  const WINDOW_WIDTH_LIMIT = 768;
 
   function rotateToMouse(e: MouseEvent) {
-    if (bounds.current && rootRef.current) {
+    if (
+      bounds.current &&
+      rootRef.current &&
+      window.innerWidth > WINDOW_WIDTH_LIMIT
+    ) {
       const mouseX = e.pageX;
       const mouseY = e.pageY;
       //@ts-ignore

@@ -1,7 +1,6 @@
 import {
   FiChevronDown,
   FiChevronRight,
-  FiChevronsRight,
   FiDownload,
   FiMonitor,
   FiSmartphone,
@@ -12,8 +11,12 @@ import Link from "next/link";
 import VerticaleTimeLine from "@/components/VerticalTimeLine";
 import MagneticButton from "@/components/MagneticButton";
 import InforCard from "@/components/InfoCard";
+import React from "react";
+import HeroTextAnimation from "@/components/HeroTextAnimation";
 
 export default function Home() {
+  const [proTimeLine, setProTimeLine] = React.useState<boolean>(true);
+
   return (
     <>
       <Layout>
@@ -26,10 +29,7 @@ export default function Home() {
               <h1 className="text-white text-center text-2xl md:text-3xl font-bold font-header z-10">
                 Greetings, I’m Fedi! Full-stack web developer.
               </h1>
-              <p className="text-4xl text-center md:text-5xl font-header font-bold text-fk-white z-10">
-                I create <span className="text-fk-green">web based</span>{" "}
-                applications.
-              </p>
+              <HeroTextAnimation />
               <div className="flex flex-col space-y-4 justify-center items-center md:flex-row md:space-x-8 md:space-y-0 z-10">
                 <MagneticButton>
                   <Link href="#projects">
@@ -92,11 +92,11 @@ export default function Home() {
           </div>
         </section>
         <section id="projects" className="md:pt-24 pt-12 p-4">
-          <div className="container mx-auto space-y-12">
+          <div className="container mx-auto gap-y-12">
             <h2 className="text-fk-white text-5xl font-bold">
               Featured Projects
             </h2>
-            <div className="mx-auto grid max-w-7xl grid-cols-2 gap-28 mt-16 mb-20">
+            <div className="mx-auto grid max-w-7xl grid-cols-2 gap-28 mt-16 mb-28">
               {[1, 2, 3, 4].map((num) => (
                 <ProjectPreview key={num} />
               ))}
@@ -127,16 +127,7 @@ export default function Home() {
                   Academic
                 </button>
               </div>
-              <div className="w-full lg:w-1/2">
-                <h3 className="text-fk-white text-3xl font-bold mb-8">
-                  Academic
-                </h3>
-                <VerticaleTimeLine />
-              </div>
-              <div className="w-full lg:w-1/2">
-                <h3 className="text-fk-white text-3xl font-bold mb-8">
-                  Professional
-                </h3>
+              <div className="w-full">
                 <VerticaleTimeLine />
               </div>
             </div>

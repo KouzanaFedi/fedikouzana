@@ -1,34 +1,20 @@
 const TimeLineItem = () => {
   return (
-    <li className="mb-10 ml-6">
-      <span className="-mt-2 w-10 h-10 -left-5 absolute bg-fk-pink/30 flex justify-center items-center rounded-full">
-        <span className="flex justify-center items-center w-6 h-6 rounded-full bg-fk-pink">
-          <svg
-            aria-hidden="true"
-            className="w-3 h-3 text-white"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fillRule="evenodd"
-              d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
-              clipRule="evenodd"
-            ></path>
-          </svg>
-        </span>
-      </span>
-      <h3 className="flex items-center mb-1 text-lg font-semibold text-white">
-        Flowbite Application UI v2.0.0{" "}
-        <span className="text-sm mr-2 px-2.5 font-semibold py-0.5 rounded bg-fk-orange/40 text-fk-orange ml-3">
-          Latest
-        </span>
-      </h3>
-      <p className="mb-4 text-base font-normal text-gray-400">
-        Get access to over 20+ pages including a dashboard layout, charts,
-        kanban board, calendar, and pre-order E-commerce & Marketing pages.
-      </p>
-    </li>
+    <div className="group flex even:flex-row-reverse items-start gap-x-28 ">
+      <div className="text-fk-white-lighter flex-1 text-end group-even:text-start">
+        2019 - Present
+      </div>
+      <div className="flex flex-col gap-y-4 flex-1 group-even:items-end">
+        <div className="relative font-bold text-lg text-fk-white">
+          <span>Academic Degree</span>
+          <div className="absolute right-[-65px] group-odd:-left-[63px] top-1 w-4 h-4 rounded-full bg-fk-green-darker border-2 border-fk-green" />
+        </div>
+        <div className="text-sm text-fk-white-lighter group-even:text-end">
+          Lorem ipsum dolor sit amet consectetuer adipiscing elit aenean commodo
+          ligula eget dolor aenean massa.
+        </div>
+      </div>
+    </div>
   );
 };
 

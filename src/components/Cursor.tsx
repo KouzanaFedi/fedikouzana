@@ -9,8 +9,8 @@ const Cursor = () => {
   const innerRef = React.useRef<HTMLDivElement>();
   const outerRef = React.useRef<HTMLDivElement>();
 
-  const endX = React.useRef(window.innerWidth / 2);
-  const endY = React.useRef(window.innerHeight / 2);
+  const endX = React.useRef(-window.innerWidth / 2);
+  const endY = React.useRef(-window.innerHeight / 2);
 
   const _x = React.useRef(0);
   const _y = React.useRef(0);
@@ -113,8 +113,8 @@ const Cursor = () => {
 
   return (
     <>
-      <div ref={innerRef} className="cursor-inner"></div>
-      <div ref={outerRef} className="cursor-outer"></div>
+      <div ref={innerRef} className="cursor-inner hidden md:block"></div>
+      <div ref={outerRef} className="cursor-outer hidden md:block"></div>
     </>
   );
 };
