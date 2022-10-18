@@ -18,7 +18,7 @@ const MagneticButton = ({ variant = "contained", children }: Props) => {
       className={`${
         variant === "contained"
           ? `bg-fk-green text-fk-gray hover:text-fk-gray`
-          : `border-fk-green-darker text-fk-white hover:text-fk-white border-2`
+          : `border-fk-green-darker text-fk-black-blue dark:text-fk-white hover:text-fk-white border-2`
       } group relative overflow-hidden font-bold text-lg p-[2px] z-20 rounded-lg cursor-pointer will-change-transform special-element`}
       onMouseOver={({ clientX, clientY }) => {
         setFirstHover(false);

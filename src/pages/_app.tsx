@@ -22,7 +22,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, []);
 
   return (
-    <div className="bg-red-50 dark:bg-fk-gray transition-colors duration-100 ease-linear">
+    <div className="bg-fk-bg-light dark:bg-fk-gray transition-colors duration-100 ease-linear">
       <Component {...pageProps} />
       {display && <Cursor />}
     </div>

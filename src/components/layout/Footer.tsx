@@ -2,14 +2,13 @@ import * as Settings from "@/utils/settings";
 import Link from "next/link";
 import { SiLinkedin } from "react-icons/si";
 import { HiOutlineMail } from "react-icons/hi";
-import MagneticButton from "../MagneticButton";
 import MagneticButtonSecondary from "../MagneticButtonSecondary";
 
 const Footer = () => {
   return (
     <footer className="w-full">
       <section id="contact-me" className="my-12 p-4">
-        <div className="container mx-auto text-white py-20 rounded-3xl overflow-hidden before:rounded-3xl text-center before:absolute before:bg-mesh2 before:bg-cover before:inset-0 before:mix-blend-overlay before:opacity-100 relative before:animate-hue-rotate before:pointer-events-none">
+        <div className="container bg-fk-gray mx-auto text-white py-20 rounded-3xl overflow-hidden before:rounded-3xl text-center before:absolute before:bg-mesh2 before:bg-cover before:inset-0 before:mix-blend-overlay before:opacity-100 relative before:animate-hue-rotate before:pointer-events-none">
           <div className="flex flex-col items-center justify-center gap-8">
             <h2 className="text-3xl lg:text-6xl font-bold max-w-2xl">
               Let's Collaborate And Work Together!
@@ -39,7 +38,7 @@ const Footer = () => {
           </div>
         </div>
       </section>
-      <div className="container mx-auto flex flex-col border-t border-fk-orange pt-8 md:flex-row"></div>
+      <div className="container mx-auto flex flex-col border-t border-fk-gray dark:border-fk-white pt-8 md:flex-row"></div>
     </footer>
   );
 };

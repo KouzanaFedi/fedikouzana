@@ -1,4 +1,4 @@
-import { useScrollPosition } from "@/hooks/useScrollPosition";
+import useScroll from "@/hooks/useScroll";
 import { isBrowser } from "@/utils";
 import React from "react";
 import { FiArrowUp } from "react-icons/fi";
@@ -10,14 +10,18 @@ type Props = {
 };
 
 const Layout = ({ children }: Props) => {
+  const SCROLL_THREASH_HOLD = 150;
   const [showBackToTop, setShowBackToTop] = React.useState<boolean>(false);
-  useScrollPosition(({ currPos }) => {
-    if (Math.abs(currPos.y) > 150) {
+  const scroll = useScroll();
+
+  React.useEffect(() => {
+    if (scroll >= SCROLL_THREASH_HOLD) {
       setShowBackToTop(true);
     } else {
       setShowBackToTop(false);
     }
-  });
+  }, [scroll]);
+
   return (
     <>
       <Header />

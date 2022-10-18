@@ -2,7 +2,7 @@ import Link from "next/link";
 import React from "react";
 import { FiArrowRight } from "react-icons/fi";
 
-const ProjectPreview = () => {
+const ProjectPreview = ({ img }: { img: string }) => {
   const [hover, setHover] = React.useState(false);
   const rootRef = React.useRef<HTMLDivElement>();
   const bounds = React.useRef<DOMRect>();
@@ -73,12 +73,8 @@ const ProjectPreview = () => {
           setHover(false);
         }}
       >
-        <img
-          src="/personal-website.png"
-          alt="portfolio"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute z-10 top-0 w-full h-full bg-gradient-to-tr from-black to-black/0" />
+        <img src={img} alt="portfolio" className="w-full h-full object-cover" />
+        <div className="absolute z-10 top-0 w-full h-full bg-gradient-to-tr from-white dark:from-black to-black/0" />
       </div>
       <div
         className="special-element absolute left-0 bottom-0 z-20 flex flex-col gap-4 info-deth"
@@ -89,7 +85,7 @@ const ProjectPreview = () => {
           setHover(false);
         }}
       >
-        <h3 className="font-black text-2xl uppercase text-fk-white ">
+        <h3 className="font-black text-2xl uppercase text-fk-black-blue dark:text-fk-white ">
           Personal <br />
           Porftolio
         </h3>

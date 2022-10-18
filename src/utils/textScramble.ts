@@ -49,7 +49,7 @@ class TextScramble {
                     char = this.randomChar()
                     this.queue[i].char = char
                 }
-                output += `<span class="boahahah">${char}</span>`
+                output += `<span class="get-rickrolled">${char}</span>`
             } else {
                 output += from
             }

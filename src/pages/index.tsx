@@ -8,25 +8,24 @@ import {
 import Layout from "@/components/layout/Layout";
 import ProjectPreview from "@/components/ProjectPreview";
 import Link from "next/link";
-import VerticaleTimeLine from "@/components/VerticalTimeLine";
 import MagneticButton from "@/components/MagneticButton";
 import InforCard from "@/components/InfoCard";
 import React from "react";
 import HeroTextAnimation from "@/components/HeroTextAnimation";
+import TimeLineSection from "@/components/TimeLineSection";
 
 export default function Home() {
-  const [proTimeLine, setProTimeLine] = React.useState<boolean>(true);
-
   return (
     <>
       <Layout>
         <div className="absolute top-0 md:-top-80 md:-right-40 z-0 right-0 overflow-hidden select-none">
-          <img src="/desktop-dark.png" />
+          <img className="hidden dark:block" src="/desktop-dark.png" />
+          <img className="dark:hidden" src="/desktop-light.png" />
         </div>
         <section id="greeting-block" className="pt-20 relative">
           <div className="container px-4 mx-auto overflow-x-clip flex items-center mt-14 md:mt-28 md:mb-36 relative md:overflow-visible">
             <div className="w-full space-y-6">
-              <h1 className="text-white text-center text-2xl md:text-3xl font-bold font-header z-10">
+              <h1 className="text-fk-black-blue dark:text-white text-center text-2xl md:text-3xl font-bold font-header z-10">
                 Greetings, I’m Fedi! Full-stack web developer.
               </h1>
               <HeroTextAnimation />
@@ -54,11 +53,11 @@ export default function Home() {
           </div>
           <div className="mx-auto container flex flex-col gap-y-12 items-center p-4 md:p-2 gap-x-8 lg:flex-row-reverse lg:gap-y-0 xl:gap-x-24">
             <div className="w-full lg:w-1/2 flex flex-col gap-y-8">
-              <h2 className=" text-fk-white text-5xl font-bold">
+              <h2 className="text-fk-black-blue dark:text-fk-white text-5xl font-bold">
                 Motivated fullstack and <br />
                 mobile developer
               </h2>
-              <p className="text-fk-white-lighter text-2xl">
+              <p className="text-fk-black-blue dark:text-fk-white-lighter text-2xl">
                 Hello and welcome to my portfolio! My name is Fedi, and I'm a
                 passionate programmer and gamer.
                 <br /> For web programming, I mainly use the{" "}
@@ -93,12 +92,17 @@ export default function Home() {
         </section>
         <section id="projects" className="md:pt-24 pt-12 p-4">
           <div className="container mx-auto gap-y-12">
-            <h2 className="text-fk-white text-5xl font-bold">
+            <h2 className="text-fk-black-blue dark:text-fk-white text-5xl font-bold">
               Featured Projects
             </h2>
             <div className="mx-auto grid max-w-7xl grid-cols-2 gap-28 mt-16 mb-28">
-              {[1, 2, 3, 4].map((num) => (
-                <ProjectPreview key={num} />
+              {[
+                "/project-1.png",
+                "/project-2.png",
+                "/project-3.png",
+                "/project-4.png",
+              ].map((img, index) => (
+                <ProjectPreview key={index} img={img} />
               ))}
             </div>
             <div className="flex justify-center items-center">
@@ -113,26 +117,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section id="carrer" className="md:pt-24 pt-12 p-4">
-          <div className="container mx-auto px-4 space-y-12">
-            <h2 className="text-fk-white text-5xl font-bold">
-              My carrer so far
-            </h2>
-            <div className="w-full rounded-lg bg-fk-darkGray p-9">
-              <div className="w-fit p-2 rounded-lg bg-fk-gray flex items-center gap-2 max-w-xs font-bold text-sm">
-                <button className="px-6 py-2 rounded-lg bg-fk-green text-fk-gray">
-                  Professional
-                </button>
-                <button className="px-6 py-2 rounded-lg bg-fk-green-darker text-fk-white">
-                  Academic
-                </button>
-              </div>
-              <div className="w-full">
-                <VerticaleTimeLine />
-              </div>
-            </div>
-          </div>
-        </section>
+        <TimeLineSection />
       </Layout>
     </>
   );

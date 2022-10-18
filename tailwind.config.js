@@ -10,6 +10,8 @@ module.exports = {
         "fk-white": "#FFFFFF",
         "fk-darkGray": "#151A28",
         "fk-gray": "#090c14",
+        "fk-black-blue": "#1D1125",
+        "fk-bg-light": "#FAFAFA",
         "fk-white-lighter": "#A5A5A5",
       },
       backgroundImage: {

@@ -22,7 +22,7 @@ const HeroTextAnimation = () => {
   }, []);
 
   return (
-    <p className="text-4xl text-center md:text-5xl font-header font-bold text-fk-white z-10">
+    <p className="text-4xl text-center md:text-5xl font-header font-bold text-fk-black-blue dark:text-fk-white z-10">
       I create{" "}
       <span ref={textRef} className="text-fk-green">
         web based
