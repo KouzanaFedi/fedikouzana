@@ -5,17 +5,22 @@ import VerticaleTimeLine from "./VerticalTimeLine";
 const TimeLineSection = () => {
   const [proTimeLine, setProTimeLine] = React.useState<boolean>(true);
 
+  React.useEffect(() => {
+    console.log(proTimeLine);
+  }, [proTimeLine]);
   return (
     <section id="carrer" className="md:pt-24 pt-12 p-4">
       <div className="container mx-auto px-4 space-y-12">
-        <h2 className="text-fk-black-blue dark:text-fk-white text-5xl font-bold">My carrer so far</h2>
+        <h2 className="text-fk-black-blue dark:text-fk-white text-5xl font-bold">
+          My carrer so far
+        </h2>
         <div className="w-full rounded-lg bg-white dark:bg-fk-darkGray p-9">
           <div className="w-fit">
             <label className="timeline-switch relative w-full rounded-lg p-2 bg-fk-gray flex items-center">
               <input
                 className="opacity-0 w-0 h-0"
-                onChange={({ target: { checked } }) => {
-                  setProTimeLine(checked);
+                onChange={() => {
+                  setProTimeLine(!proTimeLine);
                 }}
                 type="checkbox"
               />
