@@ -6,10 +6,10 @@ const Projects = () => {
     <Layout>
       <section id="projects" className="md:pt-24 pt-12 p-4">
         <div className="container mx-auto gap-y-12 mt-24">
-          <h2 className="text-fk-black-blue dark:text-fk-white text-5xl font-bold text-center">
+          <h2 className="text-fk-black-blue dark:text-fk-white text-4xl md:text-5xl font-bold text-center">
             Projects
           </h2>
-          <div className="mx-auto grid max-w-7xl grid-cols-2 gap-28 mt-20 mb-28">
+          <div className="mx-auto grid max-w-7xl grid-cols-1 gap-28 mt-20 mb-28 md:grid-cols-2 px-8">
             {[
               "/project-1.png",
               "/project-2.png",

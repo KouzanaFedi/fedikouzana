@@ -27,6 +27,7 @@ const HeroTextAnimation = () => {
       <span ref={textRef} className="text-fk-green">
         web based
       </span>{" "}
+      <br className="md:hidden"/>
       applications.
     </p>
   );

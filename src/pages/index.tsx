@@ -24,15 +24,16 @@ export default function Home() {
         </div>
         <section id="greeting-block" className="pt-20 relative">
           <div className="container px-4 mx-auto overflow-x-clip flex items-center mt-14 md:mt-28 md:mb-36 relative md:overflow-visible">
-            <div className="w-full space-y-6">
+            <div className="w-full md:space-y-6">
               <h1 className="text-fk-black-blue dark:text-white text-center text-2xl md:text-3xl font-bold font-header z-10">
-                Greetings, I’m Fedi! Full-stack web developer.
+                Greetings, I’m Fedi!
+                <br className="md:hidden"/> Full-stack web developer.
               </h1>
               <HeroTextAnimation />
-              <div className="flex flex-col space-y-4 justify-center items-center md:flex-row md:space-x-8 md:space-y-0 z-10">
+              <div className="flex flex-col space-y-4 justify-center items-center md:flex-row md:space-x-8 md:space-y-0 z-10 mt-6 md:mt-0">
                 <MagneticButton>
                   <Link href="#projects">
-                    <a className="flex items-center gap-4 px-10 py-4">
+                    <a className="flex items-center gap-4 px-10 py-4 w-64">
                       <span>Check my work</span>
                       <FiChevronDown
                         className="group-hover:animate-fk-bounce-animation"
@@ -43,7 +44,7 @@ export default function Home() {
                 </MagneticButton>
 
                 <MagneticButton variant="outlined">
-                  <div className="flex items-center gap-4 px-10 py-4">
+                  <div className="flex justify-center items-center gap-4 px-10 py-4  w-64">
                     <span className="group-hover:z-30">My resume</span>
                     <FiDownload className="group-hover:z-30" size={24} />
                   </div>
@@ -51,9 +52,9 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="mx-auto container flex flex-col gap-y-12 items-center p-4 md:p-2 gap-x-8 lg:flex-row-reverse lg:gap-y-0 xl:gap-x-24">
-            <div className="w-full lg:w-1/2 flex flex-col gap-y-8">
-              <h2 className="text-fk-black-blue dark:text-fk-white text-5xl font-bold">
+          <div className="mx-auto container flex flex-col gap-y-12 items-center p-4 md:p-2 gap-x-8 lg:flex-row-reverse mt-6 md:mt-0 lg:gap-y-0 xl:gap-x-24">
+            <div className="w-full lg:w-1/2 flex flex-col gap-y-8 px-8">
+              <h2 className="text-fk-black-blue dark:text-fk-white text-4xl md:text-5xl font-bold text-center md:text-start ">
                 Motivated fullstack and <br />
                 mobile developer
               </h2>
@@ -72,7 +73,7 @@ export default function Home() {
                 .
               </p>
             </div>
-            <div className="w-full flex flex-col lg:flex-col md:flex-row lg:w-1/2 gap-6">
+            <div className="w-full flex flex-col lg:flex-col md:flex-row lg:w-1/2 gap-6 px-8">
               <InforCard
                 Icon={FiMonitor}
                 title={"Website development"}
@@ -92,10 +93,10 @@ export default function Home() {
         </section>
         <section id="projects" className="md:pt-24 pt-12 p-4">
           <div className="container mx-auto gap-y-12">
-            <h2 className="text-fk-black-blue dark:text-fk-white text-5xl font-bold">
+            <h2 className="text-fk-black-blue dark:text-fk-white text-4xl text-center md:text-start md:text-5xl font-bold">
               Featured Projects
             </h2>
-            <div className="mx-auto grid max-w-7xl grid-cols-2 gap-28 mt-16 mb-28">
+            <div className="mx-auto grid max-w-7xl grid-cols-1 gap-28 mt-20 mb-28 md:grid-cols-2 px-8">
               {[
                 "/project-1.png",
                 "/project-2.png",

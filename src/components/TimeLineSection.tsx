@@ -10,28 +10,30 @@ const TimeLineSection = () => {
   }, [proTimeLine]);
   return (
     <section id="carrer" className="md:pt-24 pt-12 p-4">
-      <div className="container mx-auto px-4 space-y-12">
-        <h2 className="text-fk-black-blue dark:text-fk-white text-5xl font-bold">
+      <div className="container mx-auto px-8 space-y-12">
+        <h2 className="text-fk-black-blue dark:text-fk-white text-4xl text-center md:text-start md:text-5xl font-bold">
           My carrer so far
         </h2>
         <div className="w-full rounded-lg bg-white dark:bg-fk-darkGray p-9">
-          <div className="w-fit">
-            <label className="timeline-switch relative w-full rounded-lg p-2 bg-fk-gray flex items-center">
-              <input
-                className="opacity-0 w-0 h-0"
-                onChange={() => {
-                  setProTimeLine(!proTimeLine);
-                }}
-                type="checkbox"
-              />
-              <span className="timeline-slider absolute w-32 h-8 rounded-lg bg-fk-green z-10 transition-transform duration-700" />
-              <span className="timeline-option-1 z-20 mr-4 text-sm font-bold w-32 h-8 flex justify-center items-center rounded-lg cursor-pointer">
-                Professional
-              </span>
-              <span className="timeline-option-2 z-20 w-32 text-sm font-bold h-8 flex justify-center items-center cursor-pointer">
-                Academic
-              </span>
-            </label>
+          <div className="flex justify-center md:justify-start">
+            <div className="w-fit">
+              <label className="timeline-switch relative w-full rounded-lg p-2 bg-fk-gray flex items-center">
+                <input
+                  className="opacity-0 w-0 h-0"
+                  onChange={() => {
+                    setProTimeLine(!proTimeLine);
+                  }}
+                  type="checkbox"
+                />
+                <span className="timeline-slider absolute w-32 h-8 rounded-lg bg-fk-green z-10 transition-transform duration-700" />
+                <span className="timeline-option-1 z-20 mr-4 text-sm font-bold w-32 h-8 flex justify-center items-center rounded-lg cursor-pointer">
+                  Professional
+                </span>
+                <span className="timeline-option-2 z-20 w-32 text-sm font-bold h-8 flex justify-center items-center cursor-pointer">
+                  Academic
+                </span>
+              </label>
+            </div>
           </div>
           <div className="w-full mt-8">
             <AnimatePresence mode="wait">
