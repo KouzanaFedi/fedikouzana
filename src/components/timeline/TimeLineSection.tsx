@@ -6,7 +6,7 @@ const TimeLineSection = () => {
   const [proTimeLine, setProTimeLine] = React.useState<boolean>(true);
 
   return (
-    <section id="carrer" className="md:pt-24 pt-12 p-4">
+    <section id="carrer" className="pt-24 p-4">
       <div className="container mx-auto px-8 space-y-12">
         <h2 className="text-fk-black-blue dark:text-fk-white text-4xl text-center md:text-start md:text-5xl font-bold">
           My carrer so far

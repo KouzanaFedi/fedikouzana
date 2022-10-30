@@ -2,7 +2,7 @@ import * as Settings from "@/utils/settings";
 import Link from "next/link";
 import { SiLinkedin } from "react-icons/si";
 import { HiOutlineMail } from "react-icons/hi";
-import MagneticButtonSecondary from "../MagneticButtonSecondary";
+import MagneticButtonSecondary from "../buttons/MagneticButtonSecondary";
 
 const Footer = () => {
   return (

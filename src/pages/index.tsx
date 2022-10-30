@@ -1,3 +1,7 @@
+import React from "react";
+import Link from "next/link";
+import Image from "next/image";
+
 import {
   FiChevronDown,
   FiChevronRight,
@@ -5,32 +9,37 @@ import {
   FiMonitor,
   FiSmartphone,
 } from "react-icons/fi";
+
 import Layout from "@/components/layout/Layout";
-import ProjectPreview from "@/components/ProjectPreview";
-import Link from "next/link";
-import MagneticButton from "@/components/MagneticButton";
+import ProjectPreview from "@/components/projects/ProjectPreview";
+import MagneticButton from "@/components/buttons/MagneticButton";
 import InforCard from "@/components/InfoCard";
-import React from "react";
 import HeroTextAnimation from "@/components/HeroTextAnimation";
-import TimeLineSection from "@/components/TimeLineSection";
+import TimeLineSection from "@/components/timeline/TimeLineSection";
+import DESKTOP_DARK_BG from "~/desktop-dark.png";
+import DESKTOP_LIGHT_BG from "~/desktop-light.png";
 
 export default function Home() {
   return (
     <>
       <Layout>
         <div className="absolute top-0 md:-top-80 md:-right-40 z-0 right-0 overflow-hidden select-none">
-          <img className="hidden dark:block" src="/desktop-dark.png" />
-          <img className="dark:hidden" src="/desktop-light.png" />
+          <div className="hidden dark:block">
+            <Image src={DESKTOP_DARK_BG} />
+          </div>
+          <div className="dark:hidden">
+            <Image className="dark:hidden" src={DESKTOP_LIGHT_BG} />
+          </div>
         </div>
-        <section id="greeting-block" className="pt-20 relative">
+        <section id="about-me" className="pt-20 relative">
           <div className="container px-4 mx-auto overflow-x-clip flex items-center mt-14 md:mt-28 md:mb-36 relative md:overflow-visible">
-            <div className="w-full md:space-y-6">
+            <div className="w-full space-y-3 md:space-y-6">
               <h1 className="text-fk-black-blue dark:text-white text-center text-2xl md:text-3xl font-bold font-header z-10">
                 Greetings, I’m Fedi!
-                <br className="md:hidden"/> Full-stack web developer.
+                <br className="md:hidden" /> Full-stack web developer.
               </h1>
               <HeroTextAnimation />
-              <div className="flex flex-col space-y-4 justify-center items-center md:flex-row md:space-x-8 md:space-y-0 z-10 mt-6 md:mt-0">
+              <div className="flex flex-col space-y-4 justify-center items-center md:flex-row md:space-x-8 md:space-y-0 z-10 pt-6 md:mt-0">
                 <MagneticButton>
                   <Link href="#projects">
                     <a className="flex items-center gap-4 px-10 py-4 w-64">
@@ -91,12 +100,12 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section id="projects" className="md:pt-24 pt-12 p-4">
+        <section id="projects" className="pt-24 p-4">
           <div className="container mx-auto gap-y-12">
             <h2 className="text-fk-black-blue dark:text-fk-white text-4xl text-center md:text-start md:text-5xl font-bold">
               Featured Projects
             </h2>
-            <div className="mx-auto grid max-w-7xl grid-cols-1 gap-28 mt-20 mb-28 md:grid-cols-2 px-8">
+            <div className="mx-auto grid max-w-7xl grid-cols-1 gap-28 mt-20 mb-28 lg:grid-cols-2 px-8">
               {[
                 "/project-1.png",
                 "/project-2.png",

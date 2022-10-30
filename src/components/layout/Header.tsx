@@ -3,10 +3,31 @@ import React from "react";
 import Link from "next/link";
 import MenuItem from "../MenuItem";
 import { KEYS, THEMES } from "@/utils";
+import Image from "next/image";
+import wihteLogo from "~/logo.svg";
+import blackLogo from "~/logo-black.svg";
+import lightIcon from "~/light.svg";
+import darkIcon from "~/dark.svg";
+import { HamburgerMenu } from "../mobile/HamburgerMenu";
+import MobileMenu from "../mobile/MobileMenu";
+import { AnimatePresence } from "framer-motion";
+
+export type HeaderItem = {
+  label: string;
+  link: string;
+};
+
+const HEADER_ITEMS: HeaderItem[] = [
+  { label: "About me", link: "/#about-me" },
+  { label: "Portfolio", link: "/#projects" },
+  { label: "Career", link: "/#carrer" },
+  { label: "Contact", link: "#contact-me" },
+];
 
 const Header = () => {
   const SCROLL_THREASH_HOLD = 90;
   const [headerWithBg, setHeaderWithBg] = React.useState<boolean>(false);
+  const [menuOpen, setOpenMenu] = React.useState<boolean>(false);
   const [theme, setTheme] = React.useState("dark");
   const scroll = useScroll();
 
@@ -35,54 +56,72 @@ const Header = () => {
   }
 
   return (
-    <header
-      className={`w-full fixed top-0 z-50 ${
-        headerWithBg
-          ? "bg-white/90 dark:bg-fk-darkGray/90 backdrop-blur-sm"
-          : ""
-      } transition-colors duration-300`}
-    >
-      <div className="container mx-auto flex justify-between items-center px-4 py-6">
-        <Link href={"/"}>
-          <img
-            className="w-40 md:w-64 cursor-pointer hidden dark:block"
-            src={"/logo.svg"}
-          />
-        </Link>
-        <Link href={"/"}>
-          <img
-            className="w-40 md:w-64 cursor-pointer dark:hidden"
-            src={"/logo-black.svg"}
-          />
-        </Link>
-        <div className="flex items-center gap-12">
-          <ul className="flex gap-8">
-            <MenuItem label="About me" link="/#about-me" />
-            <MenuItem label="Portfolio" link="/#projects" />
-            <MenuItem label="Career" link="/#carrer" />
-            <MenuItem label="Contact" link="#contact-me" />
-          </ul>
-          <label className="switch">
-            <input
-              onChange={({ target: { checked } }) => {
-                if (!checked) {
-                  setTheme(THEMES.DARK);
-                  changeTheme(THEMES.DARK);
-                } else {
-                  setTheme(THEMES.LIGHT);
-                  changeTheme(THEMES.LIGHT);
-                }
-              }}
-              checked={!(theme === THEMES.DARK)}
-              type="checkbox"
-            />
-            <span className="slider round"></span>
-            <img className="light-icon" src="/light.svg" alt="light-icon" />
-            <img className="dark-icon" src="/dark.svg" alt="dark-icon" />
-          </label>
+    <>
+      <header
+        className={`w-full fixed top-0 z-50 ${
+          headerWithBg
+            ? "bg-white/90 dark:bg-fk-darkGray/90 backdrop-blur-sm"
+            : ""
+        } transition-colors duration-300`}
+      >
+        <div className="container mx-auto flex justify-between items-center px-4 py-6">
+          <Link href={"/"}>
+            <div className="w-40 md:w-64 cursor-pointer hidden dark:block">
+              <Image src={wihteLogo} />
+            </div>
+          </Link>
+          <Link href={"/"}>
+            <div className="w-40 md:w-64 cursor-pointer dark:hidden">
+              <Image src={blackLogo} />
+            </div>
+          </Link>
+          <div className="flex items-center gap-12">
+            <ul className="hidden items-center gap-8 lg:flex">
+              {HEADER_ITEMS.map((item, index) => (
+                <MenuItem key={index} label={item.label} link={item.link} />
+              ))}
+            </ul>
+            <div className="flex items-center gap-x-4">
+              <label className="switch relative inline-block w-[49px] h-6">
+                <input
+                  className="w-0 h-0 opacity-0"
+                  onChange={({ target: { checked } }) => {
+                    if (!checked) {
+                      setTheme(THEMES.DARK);
+                      changeTheme(THEMES.DARK);
+                    } else {
+                      setTheme(THEMES.LIGHT);
+                      changeTheme(THEMES.LIGHT);
+                    }
+                  }}
+                  checked={!(theme === THEMES.DARK)}
+                  type="checkbox"
+                />
+                <span className="slider rounded-full absolute cursor-pointer inset-0 bg-fk-white duration-300 before:absolute before:h-5 before:w-5 before:z-[2] before:left-0.5 before:bottom-0.5 before:bg-fk-gray before:duration-300 before:rounded-full"></span>
+                <div className="absolute left-1 top-1 z-[1]">
+                  <Image src={lightIcon} alt="light-icon" />
+                </div>
+                <div className="absolute right-1 top-1 z-[1]">
+                  <Image src={darkIcon} alt="dark-icon" />
+                </div>
+              </label>
+              <HamburgerMenu
+                isOpen={menuOpen}
+                changeState={() => setOpenMenu(!menuOpen)}
+              />
+            </div>
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
+      <AnimatePresence>
+        {menuOpen && (
+          <MobileMenu
+            menu={HEADER_ITEMS}
+            closeMenu={() => setOpenMenu(false)}
+          />
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 

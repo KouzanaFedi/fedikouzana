@@ -83,12 +83,12 @@ const ProjectPreview = ({ img }: { img: string }) => {
           setHover(false);
         }}
       >
-        <h3 className="font-black text-2xl uppercase text-fk-black-blue dark:text-fk-white ">
+        <h3 className="font-black md:text-2xl text-sm uppercase text-fk-black-blue dark:text-fk-white ">
           Personal <br />
           Porftolio
         </h3>
         <div className="py-0.5 bg-fk-green w-full" />
-        <span className="text-fk-white-lighter">01</span>
+        <span className="text-fk-white-lighter text-xs md:text-sm">01</span>
         <Link href={"#"}>
           <a>
             <FiArrowRight
