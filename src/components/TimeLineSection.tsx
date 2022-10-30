@@ -5,9 +5,6 @@ import VerticaleTimeLine from "./VerticalTimeLine";
 const TimeLineSection = () => {
   const [proTimeLine, setProTimeLine] = React.useState<boolean>(true);
 
-  React.useEffect(() => {
-    console.log(proTimeLine);
-  }, [proTimeLine]);
   return (
     <section id="carrer" className="md:pt-24 pt-12 p-4">
       <div className="container mx-auto px-8 space-y-12">
@@ -40,10 +37,10 @@ const TimeLineSection = () => {
               {!proTimeLine ? (
                 <motion.div
                   key={"pro"}
-                  initial={{ opacity: 0, x: 200 }}
+                  initial={{ opacity: 0, x: -200 }}
                   animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -200 }}
-                  transition={{ duration: 0.7, ease: "backInOut" }}
+                  exit={{ opacity: 0, x: 200 }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
                   className="w-full"
                 >
                   <VerticaleTimeLine />
@@ -51,10 +48,10 @@ const TimeLineSection = () => {
               ) : (
                 <motion.div
                   key={"acad"}
-                  initial={{ opacity: 0, x: -200 }}
+                  initial={{ opacity: 0, x: 200 }}
                   animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: 200 }}
-                  transition={{ duration: 0.7, ease: "backInOut" }}
+                  exit={{ opacity: 0, x: -200 }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
                   className="w-full"
                 >
                   <VerticaleTimeLine />

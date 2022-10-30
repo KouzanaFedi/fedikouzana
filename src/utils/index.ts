@@ -7,3 +7,5 @@ export const THEMES = {
 export const KEYS = {
     THEME: 'theme'
 }
+
+export const isTouchScreen = isBrowser && window.matchMedia("(pointer:coarse)").matches;

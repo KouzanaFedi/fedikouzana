@@ -1,3 +1,4 @@
+import { isTouchScreen } from "@/utils";
 import Link from "next/link";
 import React from "react";
 import { FiArrowRight } from "react-icons/fi";
@@ -6,36 +7,33 @@ const ProjectPreview = ({ img }: { img: string }) => {
   const [hover, setHover] = React.useState(false);
   const rootRef = React.useRef<HTMLDivElement>();
   const bounds = React.useRef<DOMRect>();
-  const WINDOW_WIDTH_LIMIT = 768;
 
   function rotateToMouse(e: MouseEvent) {
-    if (
-      bounds.current &&
-      rootRef.current &&
-      window.innerWidth > WINDOW_WIDTH_LIMIT
-    ) {
-      const mouseX = e.pageX;
-      const mouseY = e.pageY;
-      //@ts-ignore
-      const leftX = mouseX - e.currentTarget.offsetLeft;
-      //@ts-ignore
-      const topY = mouseY - e.currentTarget.offsetTop;
-      const center = {
-        x: leftX - bounds.current.width / 2,
-        y: topY - bounds.current.height / 2,
-      };
-      const distance = Math.sqrt(center.x ** 2 + center.y ** 2);
+    if (!isTouchScreen) {
+      if (bounds.current && rootRef.current) {
+        const mouseX = e.pageX;
+        const mouseY = e.pageY;
+        //@ts-ignore
+        const leftX = mouseX - e.currentTarget.offsetLeft;
+        //@ts-ignore
+        const topY = mouseY - e.currentTarget.offsetTop;
+        const center = {
+          x: leftX - bounds.current.width / 2,
+          y: topY - bounds.current.height / 2,
+        };
+        const distance = Math.sqrt(center.x ** 2 + center.y ** 2);
 
-      rootRef.current.style.transform = `
-      perspective(1000px)
-      scale3d(1.04, 1.04, 1.04)
-      rotate3d(
+        rootRef.current.style.transform = `
+        perspective(1000px)
+        scale3d(1.04, 1.04, 1.04)
+        rotate3d(
         ${center.y / 100},
         ${-center.x / 100},
         0,
         ${Math.log(distance) * 4}deg
         )
         `;
+      }
     }
   }
 
