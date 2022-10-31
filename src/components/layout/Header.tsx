@@ -66,14 +66,14 @@ const Header = () => {
       >
         <div className="container mx-auto flex justify-between items-center px-4 py-6">
           <Link href={"/"}>
-            <div className="w-40 md:w-64 cursor-pointer hidden dark:block">
-              <Image src={wihteLogo} />
-            </div>
+            <a className="w-40 md:w-64 cursor-pointer hidden dark:block">
+              <Image src={wihteLogo} alt="<KOUZANA/>" />
+            </a>
           </Link>
           <Link href={"/"}>
-            <div className="w-40 md:w-64 cursor-pointer dark:hidden">
-              <Image src={blackLogo} />
-            </div>
+            <a className="w-40 md:w-64 cursor-pointer dark:hidden">
+              <Image src={blackLogo} alt="<KOUZANA/>" />
+            </a>
           </Link>
           <div className="flex items-center gap-12">
             <ul className="hidden items-center gap-8 lg:flex">

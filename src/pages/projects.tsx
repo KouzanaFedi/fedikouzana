@@ -5,10 +5,10 @@ const Projects = () => {
   return (
     <Layout>
       <section id="projects" className="md:pt-24 pt-12 p-4">
-        <div className="container mx-auto gap-y-12 mt-24">
-          <h2 className="text-fk-black-blue dark:text-fk-white text-4xl md:text-5xl font-bold text-center">
+        <div className="container relative mx-auto gap-y-12 mt-24">
+          <h1 className="text-fk-black-blue dark:text-fk-white text-4xl md:text-5xl font-bold text-center">
             Projects
-          </h2>
+          </h1>
           <div className="mx-auto grid max-w-7xl grid-cols-1 gap-28 mt-20 mb-28 md:grid-cols-2 px-8">
             {[
               "/project-1.png",
@@ -24,7 +24,7 @@ const Projects = () => {
               "/project-3.png",
               "/project-4.png",
             ].map((img, index) => (
-              <ProjectPreview key={index} img={img} />
+              <ProjectPreview heading="h2" key={index} img={img} />
             ))}
           </div>
         </div>

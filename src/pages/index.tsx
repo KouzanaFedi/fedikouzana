@@ -16,21 +16,11 @@ import MagneticButton from "@/components/buttons/MagneticButton";
 import InforCard from "@/components/InfoCard";
 import HeroTextAnimation from "@/components/HeroTextAnimation";
 import TimeLineSection from "@/components/timeline/TimeLineSection";
-import DESKTOP_DARK_BG from "~/desktop-dark.png";
-import DESKTOP_LIGHT_BG from "~/desktop-light.png";
 
 export default function Home() {
   return (
     <>
       <Layout>
-        <div className="absolute top-0 md:-top-80 md:-right-40 z-0 right-0 overflow-hidden select-none">
-          <div className="hidden dark:block">
-            <Image src={DESKTOP_DARK_BG} />
-          </div>
-          <div className="dark:hidden">
-            <Image className="dark:hidden" src={DESKTOP_LIGHT_BG} />
-          </div>
-        </div>
         <section id="about-me" className="pt-20 relative">
           <div className="container px-4 mx-auto overflow-x-clip flex items-center mt-14 md:mt-28 md:mb-36 relative md:overflow-visible">
             <div className="w-full space-y-3 md:space-y-6">
@@ -112,7 +102,11 @@ export default function Home() {
                 "/project-3.png",
                 "/project-4.png",
               ].map((img, index) => (
-                <ProjectPreview key={index} img={img} />
+                <Link href={"/project"}>
+                  <a>
+                    <ProjectPreview key={index} img={img} />
+                  </a>
+                </Link>
               ))}
             </div>
             <div className="flex justify-center items-center">

@@ -3,7 +3,13 @@ import Link from "next/link";
 import React from "react";
 import { FiArrowRight } from "react-icons/fi";
 
-const ProjectPreview = ({ img }: { img: string }) => {
+type Props = {
+  img: string;
+  heading?: "h2" | "h3";
+};
+
+const ProjectPreview = ({ img, heading = "h3" }: Props) => {
+  const Heading = heading;
   const [hover, setHover] = React.useState(false);
   const rootRef = React.useRef<HTMLDivElement>();
   const bounds = React.useRef<DOMRect>();
@@ -83,10 +89,10 @@ const ProjectPreview = ({ img }: { img: string }) => {
           setHover(false);
         }}
       >
-        <h3 className="font-black md:text-2xl text-sm uppercase text-fk-black-blue dark:text-fk-white ">
+        <Heading className="font-black md:text-2xl text-sm uppercase text-fk-black-blue dark:text-fk-white ">
           Personal <br />
           Porftolio
-        </h3>
+        </Heading>
         <div className="py-0.5 bg-fk-green w-full" />
         <span className="text-fk-white-lighter text-xs md:text-sm">01</span>
         <Link href={"#"}>
