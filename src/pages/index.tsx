@@ -102,9 +102,9 @@ export default function Home() {
                 "/project-3.png",
                 "/project-4.png",
               ].map((img, index) => (
-                <Link href={"/project"}>
+                <Link key={index} href={"/project"}>
                   <a>
-                    <ProjectPreview key={index} img={img} />
+                    <ProjectPreview img={img} />
                   </a>
                 </Link>
               ))}
