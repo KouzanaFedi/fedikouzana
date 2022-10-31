@@ -102,11 +102,7 @@ export default function Home() {
                 "/project-3.png",
                 "/project-4.png",
               ].map((img, index) => (
-                <Link key={index} href={"/project"}>
-                  <a>
-                    <ProjectPreview img={img} />
-                  </a>
-                </Link>
+                <ProjectPreview key={index} img={img} />
               ))}
             </div>
             <div className="flex justify-center items-center">

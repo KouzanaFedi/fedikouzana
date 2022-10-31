@@ -11,7 +11,7 @@ type Props = {
 const ProjectPreview = ({ img, heading = "h3" }: Props) => {
   const Heading = heading;
   const [hover, setHover] = React.useState(false);
-  const rootRef = React.useRef<HTMLDivElement>();
+  const rootRef = React.useRef<HTMLAnchorElement>();
   const bounds = React.useRef<DOMRect>();
 
   function rotateToMouse(e: MouseEvent) {
@@ -64,49 +64,52 @@ const ProjectPreview = ({ img, heading = "h3" }: Props) => {
   }, [rootRef.current]);
 
   return (
-    <div
-      ref={rootRef}
-      className="group rotate3d relative w-full h-full pl-14 pb-4 will-change-transform"
-    >
-      <div
-        className="special-element relative rounded-2xl h-full aspect-square overflow-hidden shadow-md"
-        onMouseOver={() => {
-          setHover(true);
-        }}
-        onMouseLeave={() => {
-          setHover(false);
-        }}
+    <Link href={"/project"}>
+      <a
+        ref={rootRef}
+        className="group rotate3d relative w-full h-full pl-14 pb-4 will-change-transform"
       >
-        <img src={img} alt="portfolio" className="w-full h-full object-cover" />
-        <div className="absolute z-10 top-0 w-full h-full bg-gradient-to-tr from-white dark:from-black to-black/0" />
-      </div>
-      <div
-        className="special-element absolute left-0 bottom-0 z-20 flex flex-col gap-4 info-deth"
-        onMouseOver={() => {
-          setHover(true);
-        }}
-        onMouseLeave={() => {
-          setHover(false);
-        }}
-      >
-        <Heading className="font-black md:text-2xl text-sm uppercase text-fk-black-blue dark:text-fk-white ">
-          Personal <br />
-          Porftolio
-        </Heading>
-        <div className="py-0.5 bg-fk-green w-full" />
-        <span className="text-fk-white-lighter text-xs md:text-sm">01</span>
-        <Link href={"#"}>
-          <a>
-            <FiArrowRight
-              className={`text-fk-white-lighter transition-transform duration-200 ease-in-out ${
-                hover ? "translate-x-2" : ""
-              }`}
-              size={18}
-            />
-          </a>
-        </Link>
-      </div>
-    </div>
+        <div
+          className="special-element relative rounded-2xl h-full aspect-square overflow-hidden shadow-md"
+          onMouseOver={() => {
+            setHover(true);
+          }}
+          onMouseLeave={() => {
+            setHover(false);
+          }}
+        >
+          <img
+            src={img}
+            alt="portfolio"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute z-10 top-0 w-full h-full bg-gradient-to-tr from-white dark:from-black to-black/0" />
+        </div>
+        <div
+          className="special-element absolute left-0 bottom-0 z-20 flex flex-col gap-4 info-deth"
+          onMouseOver={() => {
+            setHover(true);
+          }}
+          onMouseLeave={() => {
+            setHover(false);
+          }}
+        >
+          <Heading className="font-black md:text-2xl text-sm uppercase text-fk-black-blue dark:text-fk-white ">
+            Personal <br />
+            Porftolio
+          </Heading>
+          <div className="py-0.5 bg-fk-green w-full" />
+          <span className="text-fk-white-lighter text-xs md:text-sm">01</span>
+
+          <FiArrowRight
+            className={`text-fk-white-lighter transition-transform duration-200 ease-in-out ${
+              hover ? "translate-x-2" : ""
+            }`}
+            size={18}
+          />
+        </div>
+      </a>
+    </Link>
   );
 };
 

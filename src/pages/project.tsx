@@ -1,5 +1,6 @@
 import MagneticButton from "@/components/buttons/MagneticButton";
 import Header from "@/components/layout/Header";
+import TechnologyIcon from "@/components/projects/TechnologyIcon";
 
 const Project = () => {
   const screenShots = [
@@ -12,7 +13,7 @@ const Project = () => {
     <>
       <Header />
       <div className="min-h-screen pt-20 flex flex-col lg:flex-row-reverse lg:overflow-hidden">
-        <div className="lg:max-h-[calc(100vh-80px)] min-h-[calc(100vh-80px)] h-full w-full lg:w-4/12 bg-fk-white dark:bg-fk-black-blue lg:overflow-y-auto px-14 py-10">
+        <div className="lg:max-h-[calc(100vh-80px)] min-h-[calc(100vh-80px)] h-full w-full lg:w-4/12 bg-fk-white dark:bg-fk-darkGray lg:overflow-y-auto px-14 py-10">
           <h1 className="font-black text-fk-gray dark:text-fk-white text-5xl uppercase leading-tight after:h-1 after:w-1/2 after:bg-fk-green after:block after:my-6">
             Fintech dashboard
           </h1>
@@ -40,6 +41,13 @@ const Project = () => {
             provident velit in maiores consequatur. Excepturi aliquam aliquid
             expedita iure.
           </p>
+          <div className="flex items-center gap-x-4 mt-6">
+            {[
+              Array.from({ length: 5 }).map((_, i) => (
+                <TechnologyIcon key={i} />
+              )),
+            ]}
+          </div>
           <div className="mt-8 w-fit">
             <MagneticButton>
               <div className="flex justify-center items-center gap-4 px-10 py-4">

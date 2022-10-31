@@ -19,7 +19,7 @@ const Footer = () => {
                   <a
                     target="_blank"
                     rel="noreferrer"
-                    className="flex items-center gap-4 px-10 py-4"
+                    className="flex items-center justify-center gap-4 w-full py-4"
                   >
                     <span>Get in touch</span>
                     <SiLinkedin size={24} />

@@ -1,26 +1,24 @@
 import Image from "next/image";
 import React from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
 const TechnologyIcon = () => {
-  const popUpRef = React.useRef<HTMLImageElement>(null);
+  const [showPopOver, setShowPopOver] = React.useState<boolean>(false);
+
+  function show() {
+    setShowPopOver(true);
+  }
+
+  function hide() {
+    setShowPopOver(false);
+  }
 
   return (
     <div
-      onMouseEnter={() => {
-        if (popUpRef.current) {
-          popUpRef.current.style.scale = "1";
-          popUpRef.current.style.opacity = "1";
-          popUpRef.current.style.transform = "translateX(-  .25rem)";
-        }
-      }}
-      onMouseLeave={() => {
-        if (popUpRef.current) {
-          popUpRef.current.style.scale = ".75";
-          popUpRef.current.style.opacity = "0";
-          popUpRef.current.style.transform = "unset";
-        }
-      }}
-      className="relative w-12 aspect-square group"
+      onMouseEnter={show}
+      onMouseOver={show}
+      onMouseLeave={hide}
+      className="relative w-8 aspect-square group brightness-0 dark:brightness-100 dark:grayscale hover:brightness-100 dark:hover:grayscale-0" //grayscale hover:grayscale-0
     >
       <Image
         title="React"
@@ -28,13 +26,19 @@ const TechnologyIcon = () => {
         layout="fill"
         className="w-full h-full"
       />
-      <span
-        ref={popUpRef}
-        className="scale-75 text-base duration-300 opacity-0 pointer-events-none bg-gray-900 whitespace-nowrap absolute -top-full rounded-md text-white px-2 -translate-x-1/2
-after:absolute after:bottom-0 after:left-1/2 after:w-0 after:h-0 after:border-4 after:border-transparent after:border-b-0 after:-ml-1 after:-mb-1 after:border-t-gray-900"
-      >
-        Next.js
-      </span>
+      <AnimatePresence>
+        {showPopOver && (
+          <motion.span
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="text-base shadow pointer-events-none bg-fk-gray whitespace-nowrap absolute -left-5 -top-10 rounded-md text-white px-4 py-1 after:absolute after:bottom-0 after:left-1/2 after:w-0 after:h-0 after:border-4 after:border-transparent after:border-b-0 after:-ml-1 after:-mb-1 after:border-t-fk-gray"
+          >
+            Next.js
+          </motion.span>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

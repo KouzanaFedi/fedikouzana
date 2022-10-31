@@ -23,7 +23,7 @@ const HeroTextAnimation = () => {
 
   return (
     <p className="text-center text-5xl font-header font-bold text-fk-black-blue mb-12 dark:text-fk-white z-10">
-      I create{" "}
+      I create <br className="md:hidden" />
       <span ref={textRef} className="text-fk-green">
         web based
       </span>{" "}

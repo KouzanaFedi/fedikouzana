@@ -22,6 +22,10 @@ a {
     box-sizing: border-box;
 }
 
+img {
+    user-select: none;
+}
+
 .cursor-outer,
 .cursor-inner {
     pointer-events: none;

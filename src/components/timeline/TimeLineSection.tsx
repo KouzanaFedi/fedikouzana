@@ -11,7 +11,7 @@ const TimeLineSection = () => {
         <h2 className="text-fk-black-blue dark:text-fk-white text-4xl text-center md:text-start md:text-5xl font-bold">
           My carrer so far
         </h2>
-        <div className="w-full rounded-lg bg-white dark:bg-fk-darkGray p-9">
+        <div className="w-full rounded-lg bg-white overflow-hidden dark:bg-fk-darkGray p-9">
           <div className="flex justify-center md:justify-start">
             <div className="w-fit">
               <label className="timeline-switch relative w-full rounded-lg p-2 bg-fk-gray flex items-center">
@@ -39,7 +39,7 @@ const TimeLineSection = () => {
                   key={"pro"}
                   initial={{ opacity: 0, x: -200 }}
                   animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: 200 }}
+                  exit={{ opacity: 0, x: -200 }}
                   transition={{ duration: 0.3, ease: "easeInOut" }}
                   className="w-full"
                 >
@@ -50,7 +50,7 @@ const TimeLineSection = () => {
                   key={"acad"}
                   initial={{ opacity: 0, x: 200 }}
                   animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -200 }}
+                  exit={{ opacity: 0, x: 200 }}
                   transition={{ duration: 0.3, ease: "easeInOut" }}
                   className="w-full"
                 >
