@@ -1,7 +1,7 @@
 import Cursor from "@/components/Cursor";
 import useScroll from "@/hooks/useScroll";
 import { isTouchScreen, KEYS, THEMES } from "@/utils";
-import { isBrowser } from "framer-motion";
+import { AnimatePresence, isBrowser } from "framer-motion";
 import { AppProps } from "next/app";
 import React from "react";
 import { FiArrowUp } from "react-icons/fi";
@@ -38,7 +38,9 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <div className="bg-fk-bg-light dark:bg-fk-gray transition-colors duration-100 ease-linear">
-      <Component {...pageProps} />
+      <AnimatePresence mode="wait" >
+        <Component {...pageProps} />
+      </AnimatePresence>
       {display && !isTouchScreen && <Cursor />}
       <div
         id="back-to-top"

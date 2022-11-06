@@ -1,15 +1,27 @@
-import { FiMonitor } from "react-icons/fi";
+import { motion } from "framer-motion";
 import { IconType } from "react-icons/lib";
 
 type Props = {
   Icon: IconType;
   title: string;
   content: string;
+  delay?: number;
 };
 
-const InforCard = ({ content, Icon, title }: Props) => {
+const InforCard = ({ content, Icon, title, delay = 0 }: Props) => {
   return (
-    <div className="special-element md:w-1/2 lg:w-full flex flex-col gap-y-4 bg-fk-darkGray rounded-[32px] px-8 py-6">
+    <motion.div
+      initial={{ opacity: 0, x: -200, y: -200 }}
+      whileInView={{ opacity: 1, x: 0, y: 0 }}
+      viewport={{ once: true }}
+      transition={{
+        duration: 0.4,
+        type: "spring",
+        bounce: 0.3,
+        delay,
+      }}
+      className="special-element md:w-1/2 lg:w-full flex flex-col gap-y-4 bg-fk-white dark:bg-fk-darkGray rounded-[32px] px-8 py-6"
+    >
       <div className="flex justify-between items-center">
         <div className="flex gap-x-4 items-center">
           <div className="rounded-full text-fk-white bg-fk-green-darker p-2">
@@ -18,8 +30,8 @@ const InforCard = ({ content, Icon, title }: Props) => {
           <h3 className="font-bold text-2xl text-fk-green-darker">{title}</h3>
         </div>
       </div>
-      <p className="text-fk-white font-bold">{content}</p>
-    </div>
+      <p className="text-fk-black-blue dark:text-fk-white font-bold">{content}</p>
+    </motion.div>
   );
 };
 

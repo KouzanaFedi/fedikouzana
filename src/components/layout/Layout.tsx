@@ -13,12 +13,16 @@ const Layout = ({ children }: Props) => {
   return (
     <>
       <Header />
-      <div className="absolute top-0 md:-top-80 md:-right-40 z-0 right-0 overflow-hidden select-none">
-        <div className="hidden dark:block">
-          <Image src={DESKTOP_DARK_BG} alt="bg-mesh" />
+      <div className="absolute top-0 left-0 lg:left-[unset] w-full lg:w-[70%] md:-top-96 md:-right-40  z-0 right-0 overflow-hidden select-none">
+        <div className="hidden dark:block w-auto">
+          <Image src={DESKTOP_DARK_BG} layout="responsive" alt="bg-mesh" />
         </div>
-        <div className="dark:hidden">
-          <Image className="dark:hidden" src={DESKTOP_LIGHT_BG} alt="bg-mesh" />
+        <div className="dark:hidden w-full">
+          <Image
+            layout="responsive"
+            src={DESKTOP_LIGHT_BG}
+            alt="bg-mesh"
+          />
         </div>
       </div>
       {children}

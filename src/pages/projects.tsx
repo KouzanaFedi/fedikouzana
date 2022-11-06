@@ -1,5 +1,6 @@
 import Layout from "@/components/layout/Layout";
 import ProjectPreview from "@/components/projects/ProjectPreview";
+import { motion } from "framer-motion";
 
 const Projects = () => {
   return (
@@ -24,7 +25,23 @@ const Projects = () => {
               "/project-3.png",
               "/project-4.png",
             ].map((img, index) => (
-              <ProjectPreview heading="h2" key={index} img={img} />
+              <motion.div
+                initial={{
+                  opacity: 0,
+                  x: index % 2 === 0 ? -100 : 100,
+                  y: 100,
+                }}
+                whileInView={{ opacity: 1, x: 0, y: 0 }}
+                viewport={{ once: true }}
+                transition={{
+                  duration: 0.6,
+                  type: "spring",
+                  bounce: 0.3,
+                }}
+                key={index}
+              >
+                <ProjectPreview heading="h2" img={img} />
+              </motion.div>
             ))}
           </div>
         </div>

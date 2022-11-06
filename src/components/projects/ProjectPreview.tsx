@@ -67,7 +67,7 @@ const ProjectPreview = ({ img, heading = "h3" }: Props) => {
     <Link href={"/project"}>
       <a
         ref={rootRef}
-        className="group rotate3d relative w-full h-full pl-14 pb-4 will-change-transform"
+        className="group inline-block rotate3d relative w-full h-full pl-14 pb-4 will-change-transform"
       >
         <div
           className="special-element relative rounded-2xl h-full aspect-square overflow-hidden shadow-md"

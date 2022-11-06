@@ -6,12 +6,25 @@ const TimeLineSection = () => {
   const [proTimeLine, setProTimeLine] = React.useState<boolean>(true);
 
   return (
-    <section id="carrer" className="pt-24 p-4">
-      <div className="container mx-auto px-8 space-y-12">
+    <section id="carrer" className="pt-24 md:p-4 md:pt-24">
+      <div className="container mx-auto md:px-8 space-y-12">
         <h2 className="text-fk-black-blue dark:text-fk-white text-4xl text-center md:text-start md:text-5xl font-bold">
           My carrer so far
         </h2>
-        <div className="w-full rounded-lg bg-white overflow-hidden dark:bg-fk-darkGray py-9 px-4 md:px-9">
+        <motion.div
+          initial={{
+            opacity: 0,
+            y: 200,
+          }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{
+            duration: 0.6,
+            type: "spring",
+            bounce: 0.3,
+          }}
+          className="w-full rounded-lg bg-white overflow-hidden dark:bg-fk-darkGray py-9 px-4 md:px-9"
+        >
           <div className="flex justify-center md:justify-start">
             <div className="w-fit">
               <label className="timeline-switch relative w-full rounded-lg p-2 bg-fk-gray flex items-center">
@@ -59,7 +72,7 @@ const TimeLineSection = () => {
               )}
             </AnimatePresence>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

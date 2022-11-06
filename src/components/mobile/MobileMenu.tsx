@@ -1,8 +1,8 @@
 import React from "react";
 import useScrollBlock from "@/hooks/useScrollBlock";
-import { HeaderItem } from "../layout/Header";
 import MobileMenuItem from "./MobileMenuItem";
 import { motion } from "framer-motion";
+import { HeaderItem } from "@/utils/settings";
 
 type Props = {
   menu: HeaderItem[];

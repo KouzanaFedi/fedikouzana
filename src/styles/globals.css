@@ -22,6 +22,16 @@ a {
     box-sizing: border-box;
 }
 
+::-webkit-scrollbar {
+    background-color: transparent;
+    width: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #090c14;
+    border-radius: 16px;
+}
+
 img {
     user-select: none;
 }

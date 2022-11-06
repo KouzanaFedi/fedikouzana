@@ -11,18 +11,7 @@ import darkIcon from "~/dark.svg";
 import { HamburgerMenu } from "../mobile/HamburgerMenu";
 import MobileMenu from "../mobile/MobileMenu";
 import { AnimatePresence } from "framer-motion";
-
-export type HeaderItem = {
-  label: string;
-  link: string;
-};
-
-const HEADER_ITEMS: HeaderItem[] = [
-  { label: "About me", link: "/#about-me" },
-  { label: "Portfolio", link: "/#projects" },
-  { label: "Career", link: "/#carrer" },
-  { label: "Contact", link: "#contact-me" },
-];
+import { HEADER_ITEMS } from "@/utils/settings";
 
 const Header = () => {
   const SCROLL_THREASH_HOLD = 90;
@@ -98,7 +87,7 @@ const Header = () => {
                   type="checkbox"
                 />
                 <span className="slider rounded-full absolute cursor-pointer inset-0 bg-fk-white duration-300 before:absolute before:h-5 before:w-5 before:z-[2] before:left-0.5 before:bottom-0.5 before:bg-fk-gray before:duration-300 before:rounded-full"></span>
-                <div className="absolute left-1 top-1 z-[1]">
+                <div className="absolute left-1 top-[3px] z-[1]">
                   <Image src={lightIcon} alt="light-icon" />
                 </div>
                 <div className="absolute right-1 top-1 z-[1]">
