@@ -1,3 +1,4 @@
+import { isTouchScreen } from "@/utils";
 import { magneticEffect, resetMagneticEffect } from "@/utils/animation";
 import gsap, { Power2 } from "gsap";
 import React from "react";
@@ -21,43 +22,49 @@ const MagneticButton = ({ variant = "contained", children }: Props) => {
           : `border-fk-green-darker text-fk-black-blue dark:text-fk-white border-2`
       } group relative overflow-hidden font-bold text-lg p-[2px] z-20 rounded-lg cursor-pointer will-change-transform special-element`}
       onMouseOver={({ clientX, clientY }) => {
-        setFirstHover(false);
-        if (ref.current) {
-          magneticEffect(
-            ref.current,
-            ref.current.children[1] as HTMLElement,
-            clientX,
-            clientY
-          );
+        if (!isTouchScreen) {
+          setFirstHover(false);
+          if (ref.current) {
+            magneticEffect(
+              ref.current,
+              ref.current.children[1] as HTMLElement,
+              clientX,
+              clientY
+            );
+          }
         }
       }}
       onMouseEnter={() => {
-        // overlay animation enter
-        if (overlayRef.current) {
-          gsap.to(overlayRef.current, {
-            duration: 0.6,
-            startAt: {
-              y: "76%",
-            },
-            y: "0%",
-            ease: Power2.easeInOut,
-          });
+        if (!isTouchScreen) {
+          // overlay animation enter
+          if (overlayRef.current) {
+            gsap.to(overlayRef.current, {
+              duration: 0.6,
+              startAt: {
+                y: "76%",
+              },
+              y: "0%",
+              ease: Power2.easeInOut,
+            });
+          }
         }
       }}
       onMouseLeave={() => {
-        if (ref.current) {
-          resetMagneticEffect(
-            ref.current,
-            ref.current.children[1] as HTMLElement
-          );
-        }
-        // overlay animation enter
-        if (overlayRef.current) {
-          gsap.to(overlayRef.current, {
-            duration: 0.6,
-            y: "-76%",
-            ease: Power2.easeInOut,
-          });
+        if (!isTouchScreen) {
+          if (ref.current) {
+            resetMagneticEffect(
+              ref.current,
+              ref.current.children[1] as HTMLElement
+            );
+          }
+          // overlay animation enter
+          if (overlayRef.current) {
+            gsap.to(overlayRef.current, {
+              duration: 0.6,
+              y: "-76%",
+              ease: Power2.easeInOut,
+            });
+          }
         }
       }}
     >

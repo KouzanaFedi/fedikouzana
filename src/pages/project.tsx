@@ -19,7 +19,7 @@ const Project = () => {
           animate={{ x: "100%" }}
           transition={{
             duration: 1.5,
-            type: "easeIn",
+            ease: "easeOut",
           }}
           className="flex absolute z-50"
         >
@@ -36,7 +36,7 @@ const Project = () => {
             stiffness: 40,
             type: "spring",
             bounce: 0.3,
-            delay: 1.4,
+            delay: 1.35,
           }}
           className="lg:max-h-[calc(100vh-80px)] min-h-[calc(100vh-80px)] h-full w-full lg:w-4/12 bg-fk-white dark:bg-fk-darkGray lg:overflow-y-auto px-14 py-10"
         >
@@ -84,8 +84,7 @@ const Project = () => {
         </motion.div>
         <motion.div
           initial={{ opacity: 0, y: 250 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{
             duration: 0.8,
             type: "spring",
