@@ -83,7 +83,7 @@ const Project = () => {
           </div>
         </motion.div>
         <motion.div
-          initial={{ opacity: 0, y: 400 }}
+          initial={{ opacity: 0, y: 250 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{
