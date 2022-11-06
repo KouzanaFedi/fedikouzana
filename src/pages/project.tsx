@@ -28,7 +28,7 @@ const Project = () => {
           <div className="w-screen h-[calc(100vh-80px)] bg-fk-darkGray" />
         </motion.div>
         <motion.div
-          initial={{ opacity: 0, x: 400 }}
+          initial={{ opacity: 0, x: 250 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{
