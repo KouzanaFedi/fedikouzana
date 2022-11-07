@@ -26,7 +26,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       if (theme === THEMES.DARK) document.body.classList.add("dark");
       else document.body.classList.remove("dark");
     }
-  }, []);
+  });
 
   React.useEffect(() => {
     if (scroll >= SCROLL_THREASH_HOLD) {

@@ -33,7 +33,7 @@ const Header = () => {
     if (themeValue === THEMES.DARK || themeValue === THEMES.LIGHT) {
       setTheme(themeValue);
     }
-  }, []);
+  });
 
   function changeTheme(themeVal: string) {
     localStorage.setItem(KEYS.THEME, themeVal);

@@ -23,9 +23,9 @@ const Project = () => {
           }}
           className="flex absolute z-50"
         >
-          <div className="w-screen h-[calc(100vh-80px)] bg-fk-darkGray" />
-          <div className="w-screen h-[calc(100vh-80px)] bg-fk-green-darker" />
-          <div className="w-screen h-[calc(100vh-80px)] bg-fk-darkGray" />
+          <div className="w-screen h-[calc(100vh-80px)] bg-fk-green dark:bg-fk-green-darker" />
+          <div className="w-screen h-[calc(100vh-80px)] bg-fk-white dark:bg-fk-darkGray" />
+          <div className="w-screen h-[calc(100vh-80px)] bg-fk-green dark:bg-fk-green-darker" />
         </motion.div>
         <motion.div
           initial={{ opacity: 0, x: 250 }}

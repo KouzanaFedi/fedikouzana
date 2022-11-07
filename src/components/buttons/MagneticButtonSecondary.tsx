@@ -6,7 +6,6 @@ import React from "react";
 type Props = {
   variant?: "contained" | "outlined";
   children: React.ReactNode;
-  variantColor?: "green" | "dark";
 };
 
 const MagneticButtonSecondary = ({

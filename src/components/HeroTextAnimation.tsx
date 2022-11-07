@@ -20,7 +20,7 @@ const HeroTextAnimation = () => {
 
       next();
     }
-  }, []);
+  });
 
   return (
     <motion.p

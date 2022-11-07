@@ -15,7 +15,7 @@ const MobileMenu = ({ menu, closeMenu }: Props) => {
   React.useEffect(() => {
     blockScroll();
     return () => allowScroll();
-  }, []);
+  });
 
   return (
     <motion.div
