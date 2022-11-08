@@ -109,7 +109,7 @@ const Cursor = () => {
       document.removeEventListener("mousemove", mouseMoveEvent);
       cancelAnimationFrame(requestRef.current);
     };
-  });
+  }, []);
 
   return (
     <>

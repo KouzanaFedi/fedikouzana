@@ -26,7 +26,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       if (theme === THEMES.DARK) document.body.classList.add("dark");
       else document.body.classList.remove("dark");
     }
-  });
+  }, []);
 
   React.useEffect(() => {
     if (scroll >= SCROLL_THREASH_HOLD) {
@@ -38,7 +38,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <div className="bg-fk-bg-light dark:bg-fk-gray transition-colors duration-100 ease-linear">
-      <AnimatePresence mode="wait" >
+      <AnimatePresence mode="wait">
         <Component {...pageProps} />
       </AnimatePresence>
       {display && !isTouchScreen && <Cursor />}

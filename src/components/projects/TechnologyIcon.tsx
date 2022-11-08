@@ -18,7 +18,7 @@ const TechnologyIcon = () => {
       onMouseEnter={show}
       onMouseOver={show}
       onMouseLeave={hide}
-      className="relative w-8 aspect-square group brightness-0 dark:brightness-100 dark:grayscale hover:brightness-100 dark:hover:grayscale-0" //grayscale hover:grayscale-0
+      className="relative w-8 aspect-square group brightness-0 dark:brightness-100 dark:grayscale hover:brightness-100 dark:hover:grayscale-0"
     >
       <Image
         title="React"

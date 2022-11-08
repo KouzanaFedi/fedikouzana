@@ -28,11 +28,11 @@ const Project = () => {
           <div className="w-screen h-[calc(100vh-80px)] bg-fk-green dark:bg-fk-green-darker" />
         </motion.div>
         <motion.div
-          initial={{ opacity: 0, x: 250 }}
+          initial={{ opacity: 0, x: 75 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{
-            duration: 0.8,
+            duration: 1,
             stiffness: 40,
             type: "spring",
             bounce: 0.3,
@@ -83,14 +83,14 @@ const Project = () => {
           </div>
         </motion.div>
         <motion.div
-          initial={{ opacity: 0, y: 250 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, scale: 0.6, y: 100 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{
-            duration: 0.8,
+            duration: 1,
             type: "spring",
             bounce: 0.3,
             stiffness: 40,
-            delay: 1.8,
+            delay: 1.5,
           }}
           className="w-full lg:w-8/12 min-h-[calc(100vh-80px)] lg:min-h-full lg:max-h-[calc(100vh-80px)] h-full flex flex-col gap-y-2 bg-fk-white dark:bg-fk-black-blue lg:overflow-y-auto"
         >

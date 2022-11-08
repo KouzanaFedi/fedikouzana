@@ -16,25 +16,25 @@ import InforCard from "@/components/InfoCard";
 import HeroTextAnimation from "@/components/HeroTextAnimation";
 import TimeLineSection from "@/components/timeline/TimeLineSection";
 import { motion } from "framer-motion";
-//ease: [0.17, 0.67, 0.83, 0.67]
+
 export default function Home() {
   return (
     <>
       <Layout>
         <motion.main
-          initial={{ opacity: 0, scale: 0 }}
+          initial={{ opacity: 0, scale: 0.7 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0 }}
-          transition={{ duration: 0.5, ease: "easeInOut" }}
+          transition={{ duration: 1, ease: "easeInOut" }}
         >
           <section id="about-me" className="pt-20 relative">
             <div className="container px-4 mx-auto overflow-x-clip flex items-center mt-14 md:mt-28 md:mb-36 relative md:overflow-visible">
               <div className="w-full space-y-3 md:space-y-6">
                 <motion.h1
-                  initial={{ opacity: 0, y: -100 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, y: -20, skewX: -12 }}
+                  whileInView={{ opacity: 1, y: 0, skewX: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.4, type: "spring", bounce: 0.3 }}
+                  transition={{ duration: 1.2, type: "spring", bounce: 0.3 }}
                   className="text-fk-black-blue dark:text-white text-center text-2xl md:text-3xl font-bold font-header z-10"
                 >
                   Greetings, I’m Fedi!
@@ -42,12 +42,12 @@ export default function Home() {
                 </motion.h1>
                 <HeroTextAnimation />
                 <motion.div
-                  initial={{ opacity: 0, scale: 0.4 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
+                  initial={{ opacity: 0, scale: 0.4, skewX: -12 }}
+                  whileInView={{ opacity: 1, scale: 1, skewX: 0 }}
                   viewport={{ once: true }}
                   transition={{
-                    bounce: 0.15,
-                    duration: 0.6,
+                    bounce: 0.3,
+                    duration: 1,
                     type: "spring",
                     delay: 0.8,
                   }}
@@ -78,13 +78,13 @@ export default function Home() {
               <motion.div
                 initial={{
                   opacity: 0,
-                  x: 200,
-                  y: 100,
+                  x: -50,
+                  skewX: -12,
                 }}
-                whileInView={{ opacity: 1, x: 0, y: 0 }}
+                whileInView={{ opacity: 1, x: 0, skewX: 0 }}
                 viewport={{ once: true }}
                 transition={{
-                  duration: 0.6,
+                  duration: 1,
                   type: "spring",
                   bounce: 0.3,
                 }}
@@ -111,7 +111,7 @@ export default function Home() {
               </motion.div>
               <div className="w-full flex flex-col lg:flex-col md:flex-row lg:w-1/2 gap-6 px-8">
                 <InforCard
-                  delay={0.45}
+                  delay={0.35}
                   Icon={FiMonitor}
                   title={"Website development"}
                   content={
@@ -119,7 +119,7 @@ export default function Home() {
                   }
                 />
                 <InforCard
-                  delay={0.9}
+                  delay={0.75}
                   Icon={FiSmartphone}
                   title={"Mobile development"}
                   content={
@@ -144,13 +144,13 @@ export default function Home() {
                   <motion.div
                     initial={{
                       opacity: 0,
-                      x: index % 2 === 0 ? -100 : 100,
-                      y: 100,
+                      x: index % 2 === 0 ? -75 : 75,
+                      y: 75,
                     }}
                     whileInView={{ opacity: 1, x: 0, y: 0 }}
                     viewport={{ once: true }}
                     transition={{
-                      duration: 0.6,
+                      duration: 1,
                       type: "spring",
                       bounce: 0.3,
                     }}

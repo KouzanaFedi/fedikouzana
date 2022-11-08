@@ -14,12 +14,12 @@ const TimeLineSection = () => {
         <motion.div
           initial={{
             opacity: 0,
-            y: 200,
+            y: 75,
           }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{
-            duration: 0.6,
+            duration: 1,
             type: "spring",
             bounce: 0.3,
           }}

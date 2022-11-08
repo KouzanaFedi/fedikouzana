@@ -11,8 +11,8 @@ type Props = {
 const InforCard = ({ content, Icon, title, delay = 0 }: Props) => {
   return (
     <motion.div
-      initial={{ opacity: 0, x: -200, y: -200 }}
-      whileInView={{ opacity: 1, x: 0, y: 0 }}
+      initial={{ opacity: 0, scale: 0.75, skewX: -12, x: -50, y: -50 }}
+      whileInView={{ opacity: 1, scale: 1, skewX: 0, x: 0, y: 0 }}
       viewport={{ once: true }}
       transition={{
         duration: 0.4,
@@ -30,7 +30,9 @@ const InforCard = ({ content, Icon, title, delay = 0 }: Props) => {
           <h3 className="font-bold text-2xl text-fk-green-darker">{title}</h3>
         </div>
       </div>
-      <p className="text-fk-black-blue dark:text-fk-white font-bold">{content}</p>
+      <p className="text-fk-black-blue dark:text-fk-white font-bold">
+        {content}
+      </p>
     </motion.div>
   );
 };

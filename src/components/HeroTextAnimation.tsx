@@ -20,15 +20,15 @@ const HeroTextAnimation = () => {
 
       next();
     }
-  });
+  }, []);
 
   return (
     <motion.p
-      initial={{ opacity: 0, x: 100 }}
-      whileInView={{ opacity: 1, x: 0 }}
+      initial={{ opacity: 0, scale: 0.6, x: 50 }}
+      whileInView={{ opacity: 1, scale: 1, x: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.4, type: "spring", bounce: 0.3, delay: 0.4 }}
-      className="text-center text-5xl font-header font-bold text-fk-black-blue mb-12 dark:text-fk-white z-10"
+      transition={{ duration: 0.8, type: "spring", bounce: 0.3, delay: 0.4 }}
+      className="relative text-center text-5xl font-header font-bold text-fk-black-blue mb-12 dark:text-fk-white z-10"
     >
       I create <br className="md:hidden" />
       <span ref={textRef} className="text-fk-green">

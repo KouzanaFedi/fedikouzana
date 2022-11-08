@@ -28,13 +28,13 @@ const Projects = () => {
               <motion.div
                 initial={{
                   opacity: 0,
-                  x: index % 2 === 0 ? -100 : 100,
-                  y: 100,
+                  x: index % 2 === 0 ? -75 : 75,
+                  y: 75,
                 }}
                 whileInView={{ opacity: 1, x: 0, y: 0 }}
                 viewport={{ once: true }}
                 transition={{
-                  duration: 0.6,
+                  duration: 1,
                   type: "spring",
                   bounce: 0.3,
                 }}
