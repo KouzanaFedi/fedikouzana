@@ -138,7 +138,7 @@ export async function getStaticPaths() {
     alias.map((al) => ({
       params: al,
     }));
-  return { paths, fallback: false };
+  return { paths: paths ?? [], fallback: false };
 }
 
 export async function getStaticProps({ params: { alias } }) {
