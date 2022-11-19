@@ -133,9 +133,11 @@ const Project = ({ projectData, nextProject, prevProject }: Props) => {
 
 export async function getStaticPaths() {
   const alias = await getAllProjectsAlias();
-  const paths = alias.map((al) => ({
-    params: al,
-  }));
+  const paths =
+    alias &&
+    alias.map((al) => ({
+      params: al,
+    }));
   return { paths, fallback: false };
 }
 
