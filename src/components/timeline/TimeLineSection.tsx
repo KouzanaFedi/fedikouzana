@@ -1,8 +1,14 @@
+import { TimelineItem } from "@/cms/types";
 import { AnimatePresence, motion } from "framer-motion";
 import React from "react";
 import VerticaleTimeLine from "./VerticalTimeLine";
 
-const TimeLineSection = () => {
+type Props = {
+  academic: TimelineItem[];
+  professional: TimelineItem[];
+};
+
+const TimeLineSection = ({ academic, professional }: Props) => {
   const [proTimeLine, setProTimeLine] = React.useState<boolean>(true);
 
   return (
@@ -56,7 +62,7 @@ const TimeLineSection = () => {
                   transition={{ duration: 0.3, ease: "easeInOut" }}
                   className="w-full"
                 >
-                  <VerticaleTimeLine />
+                  <VerticaleTimeLine data={academic} />
                 </motion.div>
               ) : (
                 <motion.div
@@ -67,7 +73,7 @@ const TimeLineSection = () => {
                   transition={{ duration: 0.3, ease: "easeInOut" }}
                   className="w-full"
                 >
-                  <VerticaleTimeLine />
+                  <VerticaleTimeLine data={professional} />
                 </motion.div>
               )}
             </AnimatePresence>

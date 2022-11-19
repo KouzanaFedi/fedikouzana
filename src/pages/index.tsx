@@ -16,8 +16,15 @@ import InforCard from "@/components/InfoCard";
 import HeroTextAnimation from "@/components/HeroTextAnimation";
 import TimeLineSection from "@/components/timeline/TimeLineSection";
 import { motion } from "framer-motion";
+import { getHome } from "@/cms";
+import { GetStaticProps } from "next";
+import { HomeData } from "@/cms/types";
 
-export default function Home() {
+type Props = {
+  homeData: HomeData;
+};
+
+export default function Home({ homeData }: Props) {
   return (
     <>
       <Layout>
@@ -66,10 +73,20 @@ export default function Home() {
                   </MagneticButton>
 
                   <MagneticButton variant="outlined">
-                    <div className="flex justify-center items-center gap-4 px-10 py-4  w-64">
-                      <span className="group-hover:z-30">My resume</span>
-                      <FiDownload className="group-hover:z-30" size={24} />
-                    </div>
+                    <Link
+                      download={"resume.pdf"}
+                      href={homeData.resume.url}
+                      rel="noreferrer"
+                    >
+                      <a
+                        rel="noreferrer"
+                        target="_blank"
+                        className="flex justify-center items-center gap-4 px-10 py-4 w-64"
+                      >
+                        <span className="group-hover:z-30">My resume</span>
+                        <FiDownload className="group-hover:z-30" size={24} />
+                      </a>
+                    </Link>
                   </MagneticButton>
                 </motion.div>
               </div>
@@ -135,12 +152,7 @@ export default function Home() {
                 Featured Projects
               </h2>
               <div className="mx-auto grid max-w-7xl grid-cols-1 gap-28 mt-20 mb-28 lg:grid-cols-2 px-8">
-                {[
-                  "/project-1.png",
-                  "/project-2.png",
-                  "/project-3.png",
-                  "/project-4.png",
-                ].map((img, index) => (
+                {homeData.featuredProjects.map((project, index) => (
                   <motion.div
                     initial={{
                       opacity: 0,
@@ -156,7 +168,11 @@ export default function Home() {
                     }}
                     key={index}
                   >
-                    <ProjectPreview img={img} />
+                    <ProjectPreview
+                      img={project.thumbnail}
+                      alias={project.alias}
+                      title={project.title}
+                    />
                   </motion.div>
                 ))}
               </div>
@@ -172,9 +188,20 @@ export default function Home() {
               </div>
             </div>
           </section>
-          <TimeLineSection />
+          <TimeLineSection
+            academic={homeData.academic}
+            professional={homeData.professional}
+          />
         </motion.main>
       </Layout>
     </>
   );
 }
+
+export const getStaticProps: GetStaticProps = async (ctx) => {
+  const homeData = await getHome();
+  return {
+    props: { homeData },
+    revalidate: 10,
+  };
+};

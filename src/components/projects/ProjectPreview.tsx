@@ -1,14 +1,18 @@
+import { ImageData } from "@/cms/types";
 import { isTouchScreen } from "@/utils";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { FiArrowRight } from "react-icons/fi";
 
 type Props = {
-  img: string;
+  img: ImageData;
   heading?: "h2" | "h3";
+  title: string;
+  alias: string;
 };
 
-const ProjectPreview = ({ img, heading = "h3" }: Props) => {
+const ProjectPreview = ({ img, heading = "h3", title, alias }: Props) => {
   const Heading = heading;
   const [hover, setHover] = React.useState(false);
   const rootRef = React.useRef<HTMLAnchorElement>();
@@ -64,7 +68,7 @@ const ProjectPreview = ({ img, heading = "h3" }: Props) => {
   }, [rootRef.current]);
 
   return (
-    <Link href={"/project"}>
+    <Link href={`/projects/${alias}`}>
       <a
         ref={rootRef}
         className="group inline-block rotate3d relative w-full h-full pl-14 pb-4 will-change-transform"
@@ -78,15 +82,16 @@ const ProjectPreview = ({ img, heading = "h3" }: Props) => {
             setHover(false);
           }}
         >
-          <img
-            src={img}
+          <Image
+            src={img.url}
+            height={img.height}
+            width={img.width}
             alt="portfolio"
-            className="w-full h-full object-cover"
           />
           <div className="absolute z-10 top-0 w-full h-full bg-gradient-to-tr from-white dark:from-black to-black/0" />
         </div>
         <div
-          className="special-element absolute left-0 bottom-0 z-20 flex flex-col gap-4 info-deth"
+          className="special-element w-1/2 absolute left-0 bottom-0 z-20 flex flex-col gap-4 info-deth"
           onMouseOver={() => {
             setHover(true);
           }}
@@ -94,9 +99,8 @@ const ProjectPreview = ({ img, heading = "h3" }: Props) => {
             setHover(false);
           }}
         >
-          <Heading className="font-black md:text-2xl text-sm uppercase text-fk-black-blue dark:text-fk-white ">
-            Personal <br />
-            Porftolio
+          <Heading className="font-black md:text-2xl uppercase text-fk-black-blue dark:text-fk-white ">
+            {title}
           </Heading>
           <div className="py-0.5 bg-fk-green w-full" />
           <span className="text-fk-white-lighter text-xs md:text-sm">01</span>

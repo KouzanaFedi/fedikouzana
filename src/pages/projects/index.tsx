@@ -1,8 +1,15 @@
+import { getAllProjects } from "@/cms";
+import { ProjectPreviewData } from "@/cms/types";
 import Layout from "@/components/layout/Layout";
 import ProjectPreview from "@/components/projects/ProjectPreview";
 import { motion } from "framer-motion";
+import { GetStaticProps } from "next";
 
-const Projects = () => {
+type Props = {
+  projects: ProjectPreviewData[];
+};
+
+const Projects = ({ projects }: Props) => {
   return (
     <Layout>
       <section id="projects" className="md:pt-24 pt-12 p-4">
@@ -11,20 +18,7 @@ const Projects = () => {
             Projects
           </h1>
           <div className="mx-auto grid max-w-7xl grid-cols-1 gap-28 mt-20 mb-28 md:grid-cols-2 px-8">
-            {[
-              "/project-1.png",
-              "/project-2.png",
-              "/project-3.png",
-              "/project-4.png",
-              "/project-1.png",
-              "/project-2.png",
-              "/project-3.png",
-              "/project-4.png",
-              "/project-1.png",
-              "/project-2.png",
-              "/project-3.png",
-              "/project-4.png",
-            ].map((img, index) => (
+            {projects.map((project, index) => (
               <motion.div
                 initial={{
                   opacity: 0,
@@ -38,9 +32,14 @@ const Projects = () => {
                   type: "spring",
                   bounce: 0.3,
                 }}
-                key={index}
+                key={project.id}
               >
-                <ProjectPreview heading="h2" img={img} />
+                <ProjectPreview
+                  heading="h2"
+                  alias={project.alias}
+                  img={project.thumbnail}
+                  title={project.title}
+                />
               </motion.div>
             ))}
           </div>
@@ -51,3 +50,11 @@ const Projects = () => {
 };
 
 export default Projects;
+
+export const getStaticProps: GetStaticProps = async (ctx) => {
+  const projects = await getAllProjects();
+  return {
+    props: { projects },
+    revalidate: 10,
+  };
+};

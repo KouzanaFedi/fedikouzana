@@ -1,9 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    eslint: {
-        dirs: ['src'],
-    },
-    reactStrictMode: false,
-}
+  eslint: {
+    dirs: ["src"],
+  },
+  images: {
+    domains: ["www.datocms-assets.com"],
+  },
+  reactStrictMode: false,
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

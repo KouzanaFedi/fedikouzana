@@ -38,7 +38,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <div className="bg-fk-bg-light dark:bg-fk-gray transition-colors duration-100 ease-linear">
-      <AnimatePresence mode="wait">
+      <AnimatePresence key={pageProps?.projectData?.id} mode="wait">
         <Component {...pageProps} />
       </AnimatePresence>
       {display && !isTouchScreen && <Cursor />}

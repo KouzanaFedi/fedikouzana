@@ -97,3 +97,8 @@ img {
 .timeline-switch input:not(:checked)~.timeline-option-2 {
     color: #ffffff;
 }
+
+.timeline-item ul {
+    list-style: inside;
+    text-align: left;
+}
