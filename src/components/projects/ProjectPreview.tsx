@@ -68,7 +68,7 @@ const ProjectPreview = ({ img, heading = "h3", title, alias }: Props) => {
     <Link href={`/projects/${alias}`}>
       <a
         ref={rootRef}
-        className="group inline-block rotate3d relative w-full h-full pl-8 lg:pl-14 pb-4 will-change-transform"
+        className="group inline-block rotate3d relative w-full h-full pl-8 lg:pl-14 pb-4 will-change-transform select-none"
       >
         <div
           className="special-element relative rounded-2xl h-full aspect-square overflow-hidden shadow-lg dark:shadow-fk-darkGray pointer-events-none"
@@ -88,7 +88,7 @@ const ProjectPreview = ({ img, heading = "h3", title, alias }: Props) => {
           <div className="absolute z-10 top-0 w-full h-full bg-gradient-to-tr from-white dark:from-black to-black/0" />
         </div>
         <div
-          className="special-element w-2/3 lg:w-1/2 absolute left-0 bottom-0 z-20 flex flex-col gap-4 info-deth pointer-events-none"
+          className="special-element w-2/3 lg:w-1/2 absolute left-0 bottom-8 z-20 flex flex-col gap-4 info-deth pointer-events-none"
           onMouseOver={() => {
             setHover(true);
           }}
@@ -100,14 +100,16 @@ const ProjectPreview = ({ img, heading = "h3", title, alias }: Props) => {
             {title}
           </Heading>
           <div className="py-0.5 bg-fk-green w-full" />
-          <span className="text-fk-white-lighter text-xs md:text-sm">01</span>
+          <div className="flex items-center gap-8">
+            <span className="text-fk-white-lighter text-xs md:text-sm">01</span>
 
-          <FiArrowRight
-            className={`text-fk-white-lighter transition-transform duration-200 ease-in-out ${
-              hover ? "translate-x-2" : ""
-            }`}
-            size={18}
-          />
+            <FiArrowRight
+              className={`text-fk-white-lighter transition-transform duration-200 ease-in-out ${
+                hover ? "translate-x-2" : ""
+              }`}
+              size={18}
+            />
+          </div>
         </div>
       </a>
     </Link>

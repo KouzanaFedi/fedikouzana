@@ -69,7 +69,7 @@ const Footer = () => {
           <span className="hidden md:inline">-</span>
           <br className="md:hidden mb-4" /> Made with{" "}
           <FooterIcon icon={SiNextdotjs} label={"Next v12"} />
-          |<FooterIcon icon={SiReact} label={"React v18"} />
+          |<FooterIcon icon={SiReact} label={"React v18"} />|
           <FooterIcon icon={SiTailwindcss} label={"Tailwind v3"} />|
           <FooterIcon icon={SiFramer} label={"Framer-motion v7"} />|
           <FooterIcon icon={SiGreensock} label={"GSAP3"} />|

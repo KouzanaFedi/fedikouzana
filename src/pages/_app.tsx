@@ -5,6 +5,7 @@ import { AnimatePresence, isBrowser } from "framer-motion";
 import { AppProps } from "next/app";
 import React from "react";
 import { FiArrowUp } from "react-icons/fi";
+import { NextSeo } from "next-seo";
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }: AppProps) {

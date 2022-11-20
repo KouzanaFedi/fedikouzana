@@ -8,9 +8,9 @@ import {
   FiMonitor,
   FiSmartphone,
 } from "react-icons/fi";
-
+import { NextSeo } from "next-seo";
+import DefaultSeo, { defaultValues } from "@/utils/defaultSeo";
 import Layout from "@/components/layout/Layout";
-import ProjectPreview from "@/components/projects/ProjectPreview";
 import MagneticButton from "@/components/buttons/MagneticButton";
 import InforCard from "@/components/InfoCard";
 import HeroTextAnimation from "@/components/HeroTextAnimation";
@@ -20,14 +20,22 @@ import { getHome } from "@/cms";
 import { GetStaticProps } from "next";
 import { HomeData } from "@/cms/types";
 import ProjectList from "@/components/projects/ProjectList";
+import { useRouter } from "next/router";
 
 type Props = {
   homeData: HomeData;
 };
 
 export default function Home({ homeData }: Props) {
+  const projectSectionRef = React.useRef<HTMLElement>();
+  const router = useRouter();
+
   return (
     <>
+      <NextSeo
+        {...DefaultSeo}
+        canonical={`${defaultValues.url}${router.asPath}`}
+      />
       <Layout>
         <motion.main
           initial={{ opacity: 0, scale: 0.7 }}
@@ -62,15 +70,22 @@ export default function Home({ homeData }: Props) {
                   className="flex flex-col space-y-4 justify-center items-center md:flex-row md:space-x-8 md:space-y-0 z-10 pt-6 md:mt-0"
                 >
                   <MagneticButton>
-                    <Link href="#projects">
-                      <a className="flex items-center gap-4 px-10 py-4 w-64">
-                        <span>Check my work</span>
-                        <FiChevronDown
-                          className="group-hover:animate-fk-bounce-animation"
-                          size={24}
-                        />
-                      </a>
-                    </Link>
+                    <button
+                      onClick={() => {
+                        if (projectSectionRef.current) {
+                          projectSectionRef.current.scrollIntoView({
+                            behavior: "smooth",
+                          });
+                        }
+                      }}
+                      className="flex items-center gap-4 px-10 py-4 w-64"
+                    >
+                      <span>Check my work</span>
+                      <FiChevronDown
+                        className="group-hover:animate-fk-bounce-animation"
+                        size={24}
+                      />
+                    </button>
                   </MagneticButton>
 
                   <MagneticButton variant="outlined">
@@ -92,7 +107,7 @@ export default function Home({ homeData }: Props) {
                 </motion.div>
               </div>
             </div>
-            <div className="mx-auto container flex flex-col gap-y-12 items-center p-4 md:p-2 gap-x-8 lg:flex-row-reverse mt-6 md:mt-0 lg:gap-y-0 xl:gap-x-24">
+            <div className="mx-auto container flex flex-col gap-y-12 items-center p-4 md:p-2 gap-x-8 lg:flex-row-reverse min-h-[300px] mt-6 md:mt-0 lg:gap-y-0 xl:gap-x-24">
               <motion.div
                 initial={{
                   opacity: 0,
@@ -147,7 +162,11 @@ export default function Home({ homeData }: Props) {
               </div>
             </div>
           </section>
-          <section id="projects" className="pt-24 p-4 z-20 relative">
+          <section
+            ref={projectSectionRef}
+            id="projects"
+            className="pt-24 p-4 z-20 relative"
+          >
             <div className="container mx-auto gap-y-12">
               <h2 className="text-fk-black-blue dark:text-fk-white text-4xl text-center md:text-5xl font-bold">
                 Featured Projects

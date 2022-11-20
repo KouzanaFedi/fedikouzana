@@ -10,6 +10,9 @@ import Link from "next/link";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import ViewWebSiteButton from "@/components/projects/ViewWebsiteButton";
 import VisitGithubButton from "@/components/projects/VisitGithubButton";
+import { NextSeo } from "next-seo";
+import { useRouter } from "next/router";
+import DefaultSeo, { defaultValues } from "@/utils/defaultSeo";
 
 type Props = {
   projectData: Project;
@@ -18,10 +21,17 @@ type Props = {
 };
 
 const Project = ({ projectData, nextProject, prevProject }: Props) => {
+  const router = useRouter();
+
   return (
     <>
+      <NextSeo
+        {...DefaultSeo}
+        canonical={`${defaultValues.url}${router.asPath}`}
+        title={`${defaultValues.templateTitle} ${projectData.title}`}
+      />
       <Header />
-      <div className="relative min-h-screen pt-20 flex flex-col lg:flex-row-reverse lg:overflow-hidden">
+      <div className="relative pt-20 flex flex-col lg:flex-row-reverse lg:overflow-hidden">
         <motion.div
           initial={{ right: 0, x: 0 }}
           animate={{ x: "100%" }}
@@ -46,7 +56,7 @@ const Project = ({ projectData, nextProject, prevProject }: Props) => {
             bounce: 0.3,
             delay: 1,
           }}
-          className="lg:max-h-[calc(100vh-80px)] min-h-[calc(100vh-80px)] h-full w-full lg:w-4/12 bg-fk-white dark:bg-fk-darkGray lg:overflow-y-auto px-14 py-10"
+          className="lg:max-h-[calc(100vh-80px)] min-h-[calc(100vh-80px)] h-full w-full lg:w-4/12 bg-fk-white dark:bg-fk-darkGray lg:overflow-y-auto px-8 md:px-14 lg:px-8 xl:px-14 py-10"
         >
           <div className="flex items-center text-fk-green-darker mb-4 justify-end gap-2 -mt-4 -mr-8">
             <Link href={`/projects/${prevProject}`}>
@@ -117,7 +127,7 @@ const Project = ({ projectData, nextProject, prevProject }: Props) => {
             stiffness: 40,
             delay: 1.5,
           }}
-          className="w-full lg:w-8/12 min-h-[calc(100vh-80px)] lg:min-h-full lg:max-h-[calc(100vh-80px)] h-full flex flex-col gap-y-2 bg-fk-white dark:bg-fk-black-blue lg:overflow-y-auto"
+          className="w-full lg:w-8/12 lg:min-h-[calc(100vh-80px)] lg:max-h-[calc(100vh-80px)] h-full flex flex-col gap-y-2 bg-fk-white dark:bg-fk-black-blue lg:overflow-y-auto"
         >
           {projectData.screenshots.map((sc, index) => (
             <div key={index} className="w-full h-full">
