@@ -7,7 +7,6 @@ html,
 body {
     padding: 0;
     margin: 0;
-    scroll-behavior: smooth;
     font-family: nunito sans, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     transition: all 0.5s ease-in-out;
     overflow-x: hidden;
@@ -65,7 +64,6 @@ img {
 .rotate3d {
     transform-style: preserve-3d;
     perspective: 1000px;
-    transition: transform 0.1s ease-in-out;
 }
 
 .info-deth {
@@ -100,5 +98,20 @@ img {
 
 .timeline-item ul {
     list-style: inside;
-    text-align: left;
+}
+
+.TooltipContent {
+    transform-origin: var(--radix-tooltip-content-transform-origin);
+    animation: scaleIn 0.5s ease-out;
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }

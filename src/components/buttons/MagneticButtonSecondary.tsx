@@ -22,7 +22,7 @@ const MagneticButtonSecondary = ({
       className={`${
         variant === "contained"
           ? `dark:bg-fk-gray bg-fk-green text-fk-darkGray dark:text-fk-white hover:!text-fk-gray`
-          : `border-fk-darkGray dark:border-fk-white text-fk-darkGray dark:text-fk-white hover:!text-fk-gray border-2`
+          : `border-fk-darkGray dark:border-fk-white-lighter text-fk-darkGray dark:text-fk-white hover:!text-fk-gray border-2`
       } group relative overflow-hidden font-bold text-lg p-[2px] z-20 rounded-lg cursor-pointer will-change-transform special-element`}
       onMouseOver={({ clientX, clientY }) => {
         if (!isTouchScreen) {
@@ -77,7 +77,7 @@ const MagneticButtonSecondary = ({
           className={`${
             firstHover
               ? "bg-transparent"
-              : `bg-fk-green-darker dark:bg-fk-white`
+              : `bg-fk-green-darker dark:bg-fk-white-lighter`
           } h-[200%] w-[150%] rounded-[50%] -z-10 absolute -top-1/2 -left-1/4`}
         />
         <div className="flex items-center space-x-4 w-full h-full rounded-lg group-hover:transparent">

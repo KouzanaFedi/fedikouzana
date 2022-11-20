@@ -17,7 +17,7 @@ const TimeLineItem = ({ title, periode, description }: Props) => {
           <span>{title}</span>
           <div className="absolute right-[-41px] lg:right-[-65px] group-odd:-left-[39px] lg:group-odd:-left-[63px] top-1 w-4 h-4 rounded-full bg-fk-green-darker border-2 border-fk-green" />
         </div>
-        <div className="text-sm text-fk-black-blue dark:text-fk-white-lighter group-even:text-end">
+        <div className="text-sm text-fk-black-blue dark:text-fk-white-lighter">
           <ReactMarkdown>{description}</ReactMarkdown>
         </div>
       </div>

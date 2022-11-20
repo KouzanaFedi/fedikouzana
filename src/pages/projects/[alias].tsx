@@ -1,7 +1,6 @@
 import { getAllProjectsAlias, getProjectDetail } from "@/cms";
 import { Project } from "@/cms/types";
 import ReactMarkdown from "react-markdown";
-import MagneticButton from "@/components/buttons/MagneticButton";
 import Header from "@/components/layout/Header";
 import TechnologyIcon from "@/components/projects/TechnologyIcon";
 import { motion } from "framer-motion";
@@ -103,7 +102,7 @@ const Project = ({ projectData, nextProject, prevProject }: Props) => {
                 favicon={projectData.linkFavicon}
               />
             )}
-            {!projectData.githubLink && (
+            {projectData.githubLink && (
               <VisitGithubButton link={projectData.githubLink} />
             )}
           </div>

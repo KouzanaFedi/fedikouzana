@@ -20,7 +20,7 @@ const InforCard = ({ content, Icon, title, delay = 0 }: Props) => {
         bounce: 0.3,
         delay,
       }}
-      className="special-element md:w-1/2 lg:w-full flex flex-col gap-y-4 bg-fk-white dark:bg-fk-darkGray rounded-[32px] px-8 py-6"
+      className="special-element md:w-1/2 lg:w-full flex flex-col gap-y-4 bg-fk-darkGray rounded-[32px] px-8 py-6"
     >
       <div className="flex justify-between items-center">
         <div className="flex gap-x-4 items-center">
@@ -30,7 +30,7 @@ const InforCard = ({ content, Icon, title, delay = 0 }: Props) => {
           <h3 className="font-bold text-2xl text-fk-green-darker">{title}</h3>
         </div>
       </div>
-      <p className="text-fk-black-blue dark:text-fk-white font-bold">
+      <p className="text-fk-white font-bold">
         {content}
       </p>
     </motion.div>

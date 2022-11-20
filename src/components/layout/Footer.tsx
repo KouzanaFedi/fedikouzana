@@ -14,6 +14,7 @@ import { HiOutlineMail } from "react-icons/hi";
 import { ImGithub, ImLinkedin2 } from "react-icons/im";
 import MagneticButtonSecondary from "../buttons/MagneticButtonSecondary";
 import { motion } from "framer-motion";
+import FooterIcon from "../FooterIcon";
 
 const Footer = () => {
   return (
@@ -62,18 +63,18 @@ const Footer = () => {
           </div>
         </motion.div>
       </section>
-      <div className="container mx-auto flex flex-col justify-between items-center gap-4 border-t border-fk-gray text-center dark:border-fk-white dark:text-fk-white p-4 md:flex-row">
+      <div className="container mx-auto flex flex-col justify-between items-center gap-4 border-t border-fk-gray text-center text-fk-darkGray dark:border-fk-white dark:text-fk-white p-4 md:flex-row">
         <div>
           Fedi Kouzana © <span>{new Date().getFullYear()}</span>{" "}
           <span className="hidden md:inline">-</span>
           <br className="md:hidden mb-4" /> Made with{" "}
-          <SiNextdotjs title="Next v12" className="inline-block mx-1 text-lg" />
-          |<SiReact title="React v18" className="inline-block mx-1 text-lg" />|
-          <SiTailwindcss title="Tailwind v3" className="inline-block mx-1" />|
-          <SiFramer title="Framer-motion v7" className="inline-block mx-1" />|
-          <SiGreensock title="GSAP3" className="inline-block mx-1" />|
-          <SiTypescript title="Typescript" className="inline-block mx-1" />|
-          <SiDatocms title="DatoCMS" className="inline-block mx-1" />
+          <FooterIcon icon={SiNextdotjs} label={"Next v12"} />
+          |<FooterIcon icon={SiReact} label={"React v18"} />
+          <FooterIcon icon={SiTailwindcss} label={"Tailwind v3"} />|
+          <FooterIcon icon={SiFramer} label={"Framer-motion v7"} />|
+          <FooterIcon icon={SiGreensock} label={"GSAP3"} />|
+          <FooterIcon icon={SiTypescript} label={"Typescript"} />|
+          <FooterIcon icon={SiDatocms} label={"DatoCMS"} />
         </div>
         <div className="flex items-center gap-x-1">
           <Link href={Settings.PORTFOLIO_SOURCE_CODE} rel="noreferrer">

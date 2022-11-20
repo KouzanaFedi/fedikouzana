@@ -19,6 +19,7 @@ import { motion } from "framer-motion";
 import { getHome } from "@/cms";
 import { GetStaticProps } from "next";
 import { HomeData } from "@/cms/types";
+import ProjectList from "@/components/projects/ProjectList";
 
 type Props = {
   homeData: HomeData;
@@ -105,9 +106,9 @@ export default function Home({ homeData }: Props) {
                   type: "spring",
                   bounce: 0.3,
                 }}
-                className="w-full lg:w-1/2 flex flex-col gap-y-8 px-8"
+                className="w-full lg:w-1/2 flex flex-col gap-y-8 px-4 md:px-8"
               >
-                <h2 className="text-fk-black-blue dark:text-fk-white text-4xl md:text-5xl font-bold text-center md:text-start ">
+                <h2 className="text-fk-black-blue dark:text-fk-white text-4xl font-bold text-center md:text-start">
                   Motivated fullstack and <br />
                   mobile developer
                 </h2>
@@ -115,18 +116,18 @@ export default function Home({ homeData }: Props) {
                   Hello and welcome to my portfolio! My name is Fedi, and I'm a
                   passionate programmer and gamer.
                   <br /> For web programming, I mainly use the{" "}
-                  <span className="text-fk-green font-black special-element">
+                  <span className="text-fk-green-darker font-black special-element">
                     MERN
                   </span>{" "}
                   stack as well as using frameworks like Next.js Nest.js and
                   TailwindCSS, while for mobile development, I work with{" "}
-                  <span className="text-fk-green font-black special-element">
+                  <span className="text-fk-green-darker font-black special-element">
                     Flutter
                   </span>
                   .
                 </p>
               </motion.div>
-              <div className="w-full flex flex-col lg:flex-col md:flex-row lg:w-1/2 gap-6 px-8">
+              <div className="w-full flex flex-col lg:flex-col md:flex-row lg:w-1/2 gap-6 px-4 md:px-8">
                 <InforCard
                   delay={0.35}
                   Icon={FiMonitor}
@@ -146,36 +147,12 @@ export default function Home({ homeData }: Props) {
               </div>
             </div>
           </section>
-          <section id="projects" className="pt-24 p-4">
+          <section id="projects" className="pt-24 p-4 z-20 relative">
             <div className="container mx-auto gap-y-12">
-              <h2 className="text-fk-black-blue dark:text-fk-white text-4xl text-center md:text-start md:text-5xl font-bold">
+              <h2 className="text-fk-black-blue dark:text-fk-white text-4xl text-center md:text-5xl font-bold">
                 Featured Projects
               </h2>
-              <div className="mx-auto grid max-w-7xl grid-cols-1 gap-28 mt-20 mb-28 lg:grid-cols-2 px-8">
-                {homeData.featuredProjects.map((project, index) => (
-                  <motion.div
-                    initial={{
-                      opacity: 0,
-                      x: index % 2 === 0 ? -75 : 75,
-                      y: 75,
-                    }}
-                    whileInView={{ opacity: 1, x: 0, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{
-                      duration: 1,
-                      type: "spring",
-                      bounce: 0.3,
-                    }}
-                    key={index}
-                  >
-                    <ProjectPreview
-                      img={project.thumbnail}
-                      alias={project.alias}
-                      title={project.title}
-                    />
-                  </motion.div>
-                ))}
-              </div>
+              <ProjectList list={homeData.featuredProjects} />
               <div className="flex justify-center items-center">
                 <MagneticButton>
                   <Link href="/projects">

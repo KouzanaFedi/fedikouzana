@@ -1,25 +1,19 @@
-import Image from "next/image";
-import React from "react";
-import { ImageData } from "@/cms/types";
 import * as Tooltip from "@radix-ui/react-tooltip";
+import { IconType } from "react-icons/lib";
 
 type Props = {
+  icon: IconType;
   label: string;
-  logo: ImageData;
 };
 
-const TechnologyIcon = ({ label, logo }: Props) => {
+const FooterIcon = ({ icon, label }: Props) => {
+  const Icon = icon;
   return (
     <Tooltip.Provider delayDuration={0}>
       <Tooltip.Root>
         <Tooltip.Trigger asChild>
-          <div className="relative w-8 aspect-square group">
-            <Image
-              src={logo.url}
-              height={logo.height}
-              width={logo.width}
-              className="w-full h-full"
-            />
+          <div className="inline-block align-text-top mx-1">
+            <Icon size={20} />
           </div>
         </Tooltip.Trigger>
         <Tooltip.Portal>
@@ -31,9 +25,9 @@ const TechnologyIcon = ({ label, logo }: Props) => {
             <Tooltip.Arrow className="fill-fk-darkGray dark:fill-fk-white" />
           </Tooltip.Content>
         </Tooltip.Portal>
-      </Tooltip.Root>
+      </Tooltip.Root>{" "}
     </Tooltip.Provider>
   );
 };
 
-export default TechnologyIcon;
+export default FooterIcon;

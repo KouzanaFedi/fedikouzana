@@ -37,7 +37,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, [scroll]);
 
   return (
-    <div className="bg-fk-bg-light dark:bg-fk-gray transition-colors duration-100 ease-linear">
+    <div className="bg-fk-bg-light dark:bg-fk-gray transition-colors duration-100 ease-linear selection:bg-fk-green-darker selection:text-fk-white dark:selection:text-fk-gray">
       <AnimatePresence key={pageProps?.projectData?.id} mode="wait">
         <Component {...pageProps} />
       </AnimatePresence>

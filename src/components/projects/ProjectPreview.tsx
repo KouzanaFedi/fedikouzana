@@ -16,32 +16,29 @@ const ProjectPreview = ({ img, heading = "h3", title, alias }: Props) => {
   const Heading = heading;
   const [hover, setHover] = React.useState(false);
   const rootRef = React.useRef<HTMLAnchorElement>();
-  const bounds = React.useRef<DOMRect>();
+  const MOST_X = 10;
+  const MOST_Y = 10;
 
   function rotateToMouse(e: MouseEvent) {
     if (!isTouchScreen) {
-      if (bounds.current && rootRef.current) {
-        const mouseX = e.pageX;
-        const mouseY = e.pageY;
-        //@ts-ignore
-        const leftX = mouseX - e.currentTarget.offsetLeft;
-        //@ts-ignore
-        const topY = mouseY - e.currentTarget.offsetTop;
-        const center = {
-          x: leftX - bounds.current.width / 2,
-          y: topY - bounds.current.height / 2,
-        };
-        const distance = Math.sqrt(center.x ** 2 + center.y ** 2);
+      if (rootRef.current) {
+        rootRef.current.style.transition = "";
+        const x = e.offsetX;
+        const y = e.offsetY;
 
+        const { width, height } = rootRef.current.getBoundingClientRect();
+        const halfWidth = width / 2;
+        const halfHeight = height / 2;
+
+        // calculate angle
+        const rotationY = ((x - halfWidth) / halfWidth) * MOST_X;
+        const rotationX = ((y - halfHeight) / halfHeight) * MOST_Y;
+
+        // set rotation
         rootRef.current.style.transform = `
-        perspective(1000px)
+        perspective(800px)
         scale3d(1.04, 1.04, 1.04)
-        rotate3d(
-        ${center.y / 100},
-        ${-center.x / 100},
-        0,
-        ${Math.log(distance) * 4}deg
-        )
+        rotateY(${rotationY}deg) rotateX(${rotationX}deg)
         `;
       }
     }
@@ -49,13 +46,13 @@ const ProjectPreview = ({ img, heading = "h3", title, alias }: Props) => {
 
   function mouseLeave(e: MouseEvent) {
     if (rootRef.current) {
-      rootRef.current.style.transform = "";
+      rootRef.current.style.transition = "transform 0.5s ease-in-out";
+      rootRef.current.style.transform = `rotateY(0) rotateX(0)`;
     }
   }
 
   React.useEffect(() => {
     if (rootRef.current) {
-      bounds.current = rootRef.current.getBoundingClientRect();
       rootRef.current.addEventListener("mousemove", rotateToMouse);
       rootRef.current.addEventListener("mouseleave", mouseLeave);
     }
@@ -71,10 +68,10 @@ const ProjectPreview = ({ img, heading = "h3", title, alias }: Props) => {
     <Link href={`/projects/${alias}`}>
       <a
         ref={rootRef}
-        className="group inline-block rotate3d relative w-full h-full pl-14 pb-4 will-change-transform"
+        className="group inline-block rotate3d relative w-full h-full pl-8 lg:pl-14 pb-4 will-change-transform"
       >
         <div
-          className="special-element relative rounded-2xl h-full aspect-square overflow-hidden shadow-md"
+          className="special-element relative rounded-2xl h-full aspect-square overflow-hidden shadow-lg dark:shadow-fk-darkGray pointer-events-none"
           onMouseOver={() => {
             setHover(true);
           }}
@@ -86,12 +83,12 @@ const ProjectPreview = ({ img, heading = "h3", title, alias }: Props) => {
             src={img.url}
             height={img.height}
             width={img.width}
-            alt="portfolio"
+            alt={img.basename}
           />
           <div className="absolute z-10 top-0 w-full h-full bg-gradient-to-tr from-white dark:from-black to-black/0" />
         </div>
         <div
-          className="special-element w-1/2 absolute left-0 bottom-0 z-20 flex flex-col gap-4 info-deth"
+          className="special-element w-2/3 lg:w-1/2 absolute left-0 bottom-0 z-20 flex flex-col gap-4 info-deth pointer-events-none"
           onMouseOver={() => {
             setHover(true);
           }}
@@ -99,7 +96,7 @@ const ProjectPreview = ({ img, heading = "h3", title, alias }: Props) => {
             setHover(false);
           }}
         >
-          <Heading className="font-black md:text-2xl uppercase text-fk-black-blue dark:text-fk-white ">
+          <Heading className="font-black lg:text-2xl uppercase text-fk-black-blue dark:text-fk-white">
             {title}
           </Heading>
           <div className="py-0.5 bg-fk-green w-full" />
