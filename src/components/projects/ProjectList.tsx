@@ -26,6 +26,7 @@ const ProjectList = ({ list }: Props) => {
           key={index}
         >
           <ProjectPreview
+            order={project.order}
             img={project.thumbnail}
             alias={project.alias}
             title={project.title}

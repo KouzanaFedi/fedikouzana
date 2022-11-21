@@ -21,6 +21,10 @@ a {
     box-sizing: border-box;
 }
 
+*:focus-visible {
+    outline: none;
+}
+
 ::-webkit-scrollbar {
     background-color: transparent;
     width: 4px;

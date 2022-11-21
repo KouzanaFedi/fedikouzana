@@ -9,10 +9,17 @@ type Props = {
   img: ImageData;
   heading?: "h2" | "h3";
   title: string;
+  order: number;
   alias: string;
 };
 
-const ProjectPreview = ({ img, heading = "h3", title, alias }: Props) => {
+const ProjectPreview = ({
+  img,
+  heading = "h3",
+  title,
+  alias,
+  order,
+}: Props) => {
   const Heading = heading;
   const [hover, setHover] = React.useState(false);
   const rootRef = React.useRef<HTMLAnchorElement>();
@@ -101,7 +108,9 @@ const ProjectPreview = ({ img, heading = "h3", title, alias }: Props) => {
           </Heading>
           <div className="py-0.5 bg-fk-green w-full" />
           <div className="flex items-center gap-8">
-            <span className="text-fk-white-lighter text-xs md:text-sm">01</span>
+            <span className="text-fk-white-lighter text-xs md:text-sm">
+              {order.toString().padStart(2, "0")}
+            </span>
 
             <FiArrowRight
               className={`text-fk-white-lighter transition-transform duration-200 ease-in-out ${

@@ -16,12 +16,14 @@ export interface ProjectPreviewData {
     id: string;
     alias: string;
     title: string;
+    order: number;
     thumbnail: ImageData;
 }
 
 export interface Project {
     id: string;
     alias: string;
+    order: number;
     title: string;
     subtitle: string;
     description: string;

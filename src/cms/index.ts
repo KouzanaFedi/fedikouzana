@@ -33,10 +33,11 @@ async function fetchCmsAPI(
 export async function getAllProjects(): Promise<ProjectPreviewData[]> {
     const data = await fetchCmsAPI(`
      {
-        allProjects {
+        allProjects (orderBy: order_DESC) {
             id
             alias
             title
+            order
             thumbnail {
                 basename
                 height
@@ -53,7 +54,7 @@ export async function getAllProjects(): Promise<ProjectPreviewData[]> {
 export async function getAllProjectsAlias(): Promise<string[]> {
     const data = await fetchCmsAPI(`
     {
-        allProjects {
+        allProjects (orderBy: order_DESC) {
             alias
         }
     }`);
@@ -70,6 +71,7 @@ export async function getProjectDetail(alias: string): Promise<{ project: Projec
             title
             subtitle
             periode
+            order
             wip
             description
             client
@@ -118,6 +120,7 @@ export async function getHome(): Promise<HomeData> {
             featuredProjects {
               id
               alias
+              order
               title
               thumbnail {
                 url

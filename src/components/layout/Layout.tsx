@@ -20,6 +20,7 @@ const Layout = ({ children }: Props) => {
             layout="responsive"
             quality={100}
             alt="bg-mesh"
+            className="blur-xl"
           />
         </div>
         <div className="dark:hidden w-full">
@@ -28,6 +29,7 @@ const Layout = ({ children }: Props) => {
             quality={100}
             src={DESKTOP_LIGHT_BG}
             alt="bg-mesh"
+            className="blur-xl"
           />
         </div>
       </div>

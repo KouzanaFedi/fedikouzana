@@ -9,7 +9,7 @@ type Props = {
 const TimeLineItem = ({ title, periode, description }: Props) => {
   return (
     <div className="timeline-item group flex even:flex-row-reverse items-start gap-x-16 lg:gap-x-28">
-      <div className="text-fk-green flex-1 text-end group-even:text-start">
+      <div className="text-fk-green-darker flex-1 text-end group-even:text-start">
         {periode}
       </div>
       <div className="flex flex-col gap-y-4 flex-1 group-even:items-end">
