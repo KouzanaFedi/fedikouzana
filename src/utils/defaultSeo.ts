@@ -17,7 +17,7 @@ const config: DefaultSeoProps = {
         title: defaultValues.title,
         images: [{
             alt: "Fedi <KOUZANA/>",
-            url: "~/fedi-kouzana.png",
+            url: "https://www.datocms-assets.com/84128/1668989481-fedi-kouzana.png",
         }]
     },
     title: defaultValues.title,
