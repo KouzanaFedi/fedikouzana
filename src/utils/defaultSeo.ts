@@ -15,6 +15,10 @@ const config: DefaultSeoProps = {
         siteName: defaultValues.title,
         description: defaultValues.description,
         title: defaultValues.title,
+        images: [{
+            alt: "Fedi <KOUZANA/>",
+            url: "~/fedi-kouzana.png",
+        }]
     },
     title: defaultValues.title,
     description: defaultValues.description,
