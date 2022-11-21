@@ -8,37 +8,39 @@ type Props = {
 };
 
 const MenuItem = ({ label, link }: Props) => {
-  const tagRef = React.useRef<HTMLAnchorElement>();
+  const tagRef = React.useRef<HTMLLIElement>();
 
   return (
-    <Link href={link}>
-      <a
-        className="group"
-        ref={tagRef}
-        onMouseOver={({ clientX, clientY }) => {
-          if (tagRef.current) {
-            magneticEffect(
-              tagRef.current,
-              tagRef.current.children[0] as HTMLElement,
-              clientX,
-              clientY
-            );
-          }
-        }}
-        onMouseLeave={() => {
-          if (tagRef.current) {
-            resetMagneticEffect(
-              tagRef.current,
-              tagRef.current.children[0] as HTMLElement
-            );
-          }
-        }}
-      >
-        <span className="relative text-fk-black-blue dark:text-fk-white after:content-[''] after:absolute after:left-1/2 after:-bottom-1 after:w-0 after:h-px after:bg-fk-black-blue dark:after:bg-fk-white after:transition-all group-hover:after:w-full group-hover:after:left-0">
-          {label}
-        </span>
-      </a>
-    </Link>
+    <li
+      className="group"
+      ref={tagRef}
+      onMouseOver={({ clientX, clientY }) => {
+        if (tagRef.current) {
+          magneticEffect(
+            tagRef.current,
+            tagRef.current.children[0] as HTMLElement,
+            clientX,
+            clientY
+          );
+        }
+      }}
+      onMouseLeave={() => {
+        if (tagRef.current) {
+          resetMagneticEffect(
+            tagRef.current,
+            tagRef.current.children[0] as HTMLElement
+          );
+        }
+      }}
+    >
+      <Link href={link}>
+        <a>
+          <span className="relative text-fk-black-blue dark:text-fk-white after:content-[''] after:absolute after:left-1/2 after:-bottom-1 after:w-0 after:h-px after:bg-fk-black-blue dark:after:bg-fk-white after:transition-all group-hover:after:w-full group-hover:after:left-0">
+            {label}
+          </span>
+        </a>
+      </Link>
+    </li>
   );
 };
 

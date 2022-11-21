@@ -8,14 +8,16 @@ type Props = {
 
 const MobileMenuItem = ({ label, link, closeMenu }: Props) => {
   return (
-    <Link href={link}>
-      <a
-        onClick={closeMenu}
-        className="text-5xl font-semibold text-fk-gray dark:text-fk-white"
-      >
-        {label}
-      </a>
-    </Link>
+    <li>
+      <Link href={link}>
+        <a
+          onClick={closeMenu}
+          className="text-5xl font-semibold text-fk-gray dark:text-fk-white"
+        >
+          {label}
+        </a>
+      </Link>
+    </li>
   );
 };
 
