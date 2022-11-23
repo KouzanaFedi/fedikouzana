@@ -152,6 +152,10 @@ export async function getStaticProps({ params: { alias } }) {
   const { project, allProjects } = await getProjectDetail(alias);
   const currentProjectIndex = allProjects.findIndex((al) => al.alias === alias);
 
+  if (!project) {
+    return { notFound: true };
+  }
+
   const nextProject =
     allProjects[(currentProjectIndex + 1) % allProjects.length].alias;
 
