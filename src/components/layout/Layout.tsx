@@ -11,10 +11,10 @@ type Props = {
 
 const Layout = ({ children }: Props) => {
   return (
-    <>
+    <div className="overflow-x-hidden">
       <Header />
       <div className="absolute top-0 left-0 lg:left-[unset] w-full lg:w-[70%] md:-top-96 md:-right-40 z-0 right-0 overflow-hidden select-none">
-        <div className="hidden dark:block w-auto">
+        <div className="hidden select-none dark:block w-auto">
           <Image
             src={DESKTOP_DARK_BG}
             layout="responsive"
@@ -35,7 +35,7 @@ const Layout = ({ children }: Props) => {
       </div>
       {children}
       <Footer />
-    </>
+    </div>
   );
 };
 

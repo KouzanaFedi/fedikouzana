@@ -47,7 +47,7 @@ const Header = () => {
   return (
     <>
       <header
-        className={`w-full fixed top-0 z-50 ${
+        className={`w-screen fixed top-0 z-50 ${
           headerWithBg
             ? "bg-white/90 dark:bg-fk-darkGray/90 backdrop-blur-sm"
             : ""
