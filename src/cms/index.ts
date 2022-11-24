@@ -65,7 +65,7 @@ export async function getAllProjectsAlias(): Promise<string[]> {
 export async function getProjectDetail(alias: string): Promise<{ project: Project, allProjects: { alias: string }[] }> {
     const data = await fetchCmsAPI(`  
     query ProjectData ($alias: String!) {
-        project(filter: {alias: {eq: $alias}}) {
+        project (filter: {alias: {eq: $alias}}) {
             id
             alias
             title
@@ -102,7 +102,7 @@ export async function getProjectDetail(alias: string): Promise<{ project: Projec
                 }
             }
         }
-        allProjects {
+        allProjects (orderBy: order_DESC) {
             alias
         }
     }`,
