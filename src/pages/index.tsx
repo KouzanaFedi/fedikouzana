@@ -53,8 +53,9 @@ export default function Home({ homeData }: Props) {
                   transition={{ duration: 1.2, type: "spring", bounce: 0.3 }}
                   className="text-fk-black-blue dark:text-white text-center text-2xl md:text-3xl font-bold font-header z-10"
                 >
-                  Greetings, I’m Fedi!
-                  <br className="md:hidden" /> Full-stack web developer.
+                  Salutations, My name is{" "}
+                  <span className="special-element">Fedi Kouzana</span>!
+                  <br className="md:hidden" /> Full-stack developer.
                 </motion.h1>
                 <HeroTextAnimation />
                 <motion.div
@@ -124,31 +125,34 @@ export default function Home({ homeData }: Props) {
                 className="w-full lg:w-1/2 flex flex-col gap-y-8 px-4 md:px-8"
               >
                 <h2 className="text-fk-black-blue dark:text-fk-white text-4xl font-bold text-center md:text-start">
-                  Motivated fullstack and <br />
-                  mobile developer
+                  Dedicated full-stack
+                  <br /> and front-end developer
                 </h2>
                 <p className="text-fk-black-blue dark:text-fk-white-lighter text-2xl">
-                  Hello and welcome to my portfolio! My name is Fedi, and I'm a
-                  passionate programmer and gamer.
-                  <br /> For web programming, I mainly use the{" "}
+                  Welcome to my portfolio! Fedi here, a keen coder and gamer. I
+                  mostly create web-based applications, but I also create some
+                  mobile applications. I mostly use{" "}
                   <span className="text-fk-green-darker font-black special-element">
-                    MERN
+                    React
                   </span>{" "}
-                  stack as well as using frameworks like Next.js Nest.js and
-                  TailwindCSS, while for mobile development, I work with{" "}
+                  or{" "}
+                  <span className="text-fk-green-darker font-black special-element">
+                    Next.js
+                  </span>{" "}
+                  and styling it using TailwindCSS for web development, and{" "}
                   <span className="text-fk-green-darker font-black special-element">
                     Flutter
-                  </span>
-                  .
+                  </span>{" "}
+                  for mobile apps.
                 </p>
               </motion.div>
               <div className="w-full flex flex-col lg:flex-col md:flex-row lg:w-1/2 gap-6 px-4 md:px-8">
                 <InforCard
                   delay={0.35}
                   Icon={FiMonitor}
-                  title={"Website development"}
+                  title={"Web development"}
                   content={
-                    "Created with React, Vanilla HTML and CSS or Even WordPress. Landing pages? Dashboards? plateforms? You name it, the choice is yours. Performance and responsive design garenteed."
+                    "Created with React, Vanilla HTML and CSS, or even WordPress. Landing pages? Dashboards? Platforms? You decide. Performance, SEO, and responsive design are all guaranteed."
                   }
                 />
                 <InforCard
@@ -156,7 +160,7 @@ export default function Home({ homeData }: Props) {
                   Icon={FiSmartphone}
                   title={"Mobile development"}
                   content={
-                    "Mobile application created with Flutter. Performance and smooth running apps garenteed. Currently building only on Android; untill I get my MacBook Pro 🤞."
+                    "I develop mobile apps with Flutter. Applications with guaranteed speed and fluid operation. Currently, I can only deploy apps on Android while I wait for my MacBook 🤞."
                   }
                 />
               </div>

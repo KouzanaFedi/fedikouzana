@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const HeroTextAnimation = () => {
   const textRef = React.useRef<HTMLSpanElement>();
-  const words = ["web based", "mobile"];
+  const words = ["web", "mobile"];
 
   React.useEffect(() => {
     if (textRef.current) {
@@ -30,9 +30,9 @@ const HeroTextAnimation = () => {
       transition={{ duration: 0.8, type: "spring", bounce: 0.3, delay: 0.4 }}
       className="relative text-center md:text-6xl text-5xl font-header font-bold text-fk-black-blue mb-12 dark:text-fk-white z-10"
     >
-      I create <br className="md:hidden" />
+      I make <br className="md:hidden" />
       <span ref={textRef} className="text-fk-green">
-        web based
+        web
       </span>{" "}
       <br className="lg:hidden" />
       applications.

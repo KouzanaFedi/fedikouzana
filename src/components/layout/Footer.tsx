@@ -36,7 +36,7 @@ const Footer = () => {
         >
           <div className="flex flex-col items-center justify-center gap-8 ">
             <h2 className="text-3xl lg:text-6xl font-bold max-w-2xl">
-              Let's Collaborate And Work Together!
+              Let's build something cool together!
             </h2>
             <div className="flex flex-col gap-4 md:flex-row">
               <MagneticButtonSecondary>

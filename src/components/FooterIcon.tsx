@@ -12,7 +12,7 @@ const FooterIcon = ({ icon, label }: Props) => {
     <Tooltip.Provider delayDuration={0}>
       <Tooltip.Root>
         <Tooltip.Trigger asChild>
-          <div className="inline-block align-text-top mx-1">
+          <div className="inline-block align-text-top mx-2">
             <Icon size={20} />
           </div>
         </Tooltip.Trigger>
@@ -25,7 +25,7 @@ const FooterIcon = ({ icon, label }: Props) => {
             <Tooltip.Arrow className="fill-fk-darkGray dark:fill-fk-white" />
           </Tooltip.Content>
         </Tooltip.Portal>
-      </Tooltip.Root>{" "}
+      </Tooltip.Root>
     </Tooltip.Provider>
   );
 };
