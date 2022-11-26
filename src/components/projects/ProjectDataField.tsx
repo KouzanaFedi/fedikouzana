@@ -8,7 +8,7 @@ const ProjectDataField = ({ label, value }: Props) => {
     value && (
       <div className="text-fk-gray dark:text-fk-white">
         <div className="text-fk-white-lighter">{label}</div>
-        <div className="text-xl lg:text-2xl">{value}</div>
+        <div className="text-xl font-medium lg:text-xl">{value}</div>
       </div>
     )
   );

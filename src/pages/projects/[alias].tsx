@@ -57,7 +57,7 @@ const Project = ({ projectData, nextProject, prevProject }: Props) => {
           }}
           className="lg:max-h-[calc(100vh-80px)] min-h-[calc(100vh-80px)] h-full w-full lg:w-4/12 bg-fk-white dark:bg-fk-darkGray lg:overflow-y-auto px-8 md:px-14 lg:px-8 xl:px-14 py-10"
         >
-          <div className="flex items-center text-fk-green-darker mb-4 justify-end gap-2 -mt-4 -mr-8">
+          <div className="flex items-center text-fk-green-darker mb-4 justify-end gap-2 -mt-4 lg:-mr-8 -mr-4">
             <Link href={`/projects/${prevProject}`}>
               <a>
                 <FiChevronLeft size={40} />
@@ -69,7 +69,7 @@ const Project = ({ projectData, nextProject, prevProject }: Props) => {
               </a>
             </Link>
           </div>
-          <h1 className="font-black text-fk-gray dark:text-fk-white text-3xl lg:text-4xl uppercase leading-tight after:h-1 after:w-1/2 after:bg-fk-green after:block after:my-6">
+          <h1 className="font-black text-fk-gray dark:text-fk-white text-3xl lg:text-3xl uppercase leading-tight after:h-1 after:w-1/2 after:bg-fk-green after:block after:my-6">
             {projectData.title}
           </h1>
           {projectData.wip && (
@@ -90,7 +90,7 @@ const Project = ({ projectData, nextProject, prevProject }: Props) => {
             <ProjectDataField label="Year" value={projectData.periode} />
             <ProjectDataField label="Client" value={projectData.client} />
           </div>
-          <p className="text-fk-gray dark:text-fk-white text-xl lg:text-2xl mt-8">
+          <p className="text-fk-gray dark:text-fk-white text-xl lg:text-xl mt-8">
             <ReactMarkdown>{projectData.description}</ReactMarkdown>
           </p>
           <div className="flex items-center flex-wrap gap-x-4 mt-6">
