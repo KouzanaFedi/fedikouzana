@@ -21,8 +21,8 @@ const MagneticButtonSecondary = ({
       ref={ref}
       className={`${
         variant === "contained"
-          ? `dark:bg-fk-gray bg-fk-green text-fk-darkGray dark:text-fk-white hover:!text-fk-gray`
-          : `border-fk-darkGray dark:border-fk-white-lighter text-fk-darkGray dark:text-fk-white hover:!text-fk-gray border-2`
+          ? `dark:bg-fk-gray bg-fk-green text-fk-darkGray dark:text-fk-white `
+          : `border-fk-darkGray dark:border-fk-white-lighter text-fk-darkGray dark:text-fk-white  border-2`
       } group relative overflow-hidden font-bold text-lg p-[2px] z-20 rounded-lg cursor-pointer will-change-transform special-element`}
       onMouseOver={({ clientX, clientY }) => {
         if (!isTouchScreen) {
