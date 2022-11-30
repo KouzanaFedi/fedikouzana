@@ -32,7 +32,7 @@ const MobileMenu = ({ menu, closeMenu }: Props) => {
         transition={{ delay: 0.2, duration: 0.3, ease: "easeInOut" }}
         className="container mx-auto pt-32 pb-16 flex justify-center h-screen"
       >
-        <ul className="flex h-auto gap-y-12 justify-center flex-col items-center">
+        <ul className="flex h-auto gap-y-12 justify-center flex-col items-center list-none">
           {menu.map((item, index) => (
             <MobileMenuItem
               closeMenu={closeMenu}

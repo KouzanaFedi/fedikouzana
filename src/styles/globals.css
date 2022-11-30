@@ -119,3 +119,11 @@ ul {
         transform: scale(1);
     }
 }
+
+.markdown-container a {
+    color: #59a588;
+}
+
+.markdown-container a:hover {
+    color: #75D9B3;
+}

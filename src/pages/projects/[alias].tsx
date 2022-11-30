@@ -90,9 +90,9 @@ const Project = ({ projectData, nextProject, prevProject }: Props) => {
             <ProjectDataField label="Year" value={projectData.periode} />
             <ProjectDataField label="Client" value={projectData.client} />
           </div>
-          <p className="text-fk-gray dark:text-fk-white text-xl lg:text-xl mt-8">
-            <ReactMarkdown>{projectData.description}</ReactMarkdown>
-          </p>
+          <div className="markdown-container text-fk-gray dark:text-fk-white text-xl lg:text-xl mt-8">
+            <ReactMarkdown linkTarget={"_blank"}>{projectData.description}</ReactMarkdown>
+          </div>
           <div className="flex items-center flex-wrap gap-x-4 mt-6">
             {[
               projectData.technologies.map((tech, i) => (

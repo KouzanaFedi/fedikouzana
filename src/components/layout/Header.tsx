@@ -65,7 +65,7 @@ const Header = () => {
             </a>
           </Link>
           <div className="flex items-center gap-12">
-            <ul className="hidden items-center gap-8 lg:flex">
+            <ul className="hidden items-center gap-8 lg:flex list-none">
               {HEADER_ITEMS.map((item, index) => (
                 <MenuItem key={index} label={item.label} link={item.link} />
               ))}
