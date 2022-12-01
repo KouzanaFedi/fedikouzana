@@ -5,9 +5,9 @@ import { AnimatePresence, isBrowser } from "framer-motion";
 import { AppProps } from "next/app";
 import React from "react";
 import { FiArrowUp } from "react-icons/fi";
-import { NextSeo } from "next-seo";
 import "../styles/globals.css";
 import Head from "next/head";
+import { Analytics } from "@vercel/analytics/react";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const SCROLL_THREASH_HOLD = 150;
@@ -50,6 +50,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <AnimatePresence key={pageProps?.projectData?.id} mode="wait">
           <Component {...pageProps} />
         </AnimatePresence>
+        <Analytics />
         {display && !isTouchScreen && <Cursor />}
         <div
           id="back-to-top"

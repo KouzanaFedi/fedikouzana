@@ -4,7 +4,7 @@ export const defaultValues = {
     title: 'Fedi <KOUZANA/> | Full Stack web developer',
     templateTitle: 'Fedi <KOUZANA/> |',
     description: 'Fedi Kouzana a Full Stack web developer portfolio.',
-    url: 'https://fedikouzana.vercel.app'
+    url: 'https://fedi.kouzana.com'
 }
 
 const config: DefaultSeoProps = {
