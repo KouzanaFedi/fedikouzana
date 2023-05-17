@@ -33,32 +33,34 @@ async function fetchCmsAPI(
 export async function getAllProjects(): Promise<ProjectPreviewData[]> {
     const data = await fetchCmsAPI(`
      {
-        allProjects (orderBy: order_DESC) {
-            id
-            alias
-            title
-            order
-            thumbnail {
-                basename
-                height
-                url
-                width
+        projectsList {
+            projects {
+                id
+                alias
+                title
+                order
+                thumbnail {
+                    basename
+                    height
+                    url
+                    width
+                }
             }
         }
     }
     `);
 
-    return data.allProjects;
+    return data.projectsList.projects;
 }
 
-export async function getAllProjectsAlias(): Promise<string[]> {
+export async function getAllProjectsAlias(): Promise<{ alias: string }[]> {
     const data = await fetchCmsAPI(`
     {
         allProjects (orderBy: order_DESC) {
             alias
         }
     }`);
-    
+
     return data.allProjects;
 }
 
@@ -106,7 +108,7 @@ export async function getProjectDetail(alias: string): Promise<{ project: Projec
             alias
         }
     }`,
-    { variables: { alias } });
+        { variables: { alias } });
     return data;
 }
 

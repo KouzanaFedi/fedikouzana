@@ -9,6 +9,7 @@ import {
   SiTailwindcss,
   SiTypescript,
   SiGreensock,
+  SiUpwork,
 } from "react-icons/si";
 import { HiOutlineMail } from "react-icons/hi";
 import { ImGithub, ImLinkedin2 } from "react-icons/im";
@@ -104,6 +105,16 @@ const Footer = () => {
               rel="noreferrer"
             >
               <ImGithub />
+            </a>
+          </Link>
+          <span> | </span>
+          <Link href={Settings.UPWORK_URI} rel="noreferrer">
+            <a
+              target="_blank"
+              className="text-xl hover:text-green-500"
+              rel="noreferrer"
+            >
+              <SiUpwork />
             </a>
           </Link>
         </div>

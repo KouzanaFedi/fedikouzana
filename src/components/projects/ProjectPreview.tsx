@@ -47,6 +47,7 @@ const ProjectPreview = ({
         scale3d(1.04, 1.04, 1.04)
         rotateY(${rotationY}deg) rotateX(${rotationX}deg)
         `;
+        rootRef.current.style.transition = "none";
       }
     }
   }
@@ -75,7 +76,7 @@ const ProjectPreview = ({
     <Link href={`/projects/${alias}`}>
       <a
         ref={rootRef}
-        className="group inline-block rotate3d relative w-full h-full pl-8 lg:pl-14 pb-4 will-change-transform select-none"
+        className="group inline-block rotate3d relative w-full h-full pl-8 lg:pl-14 pb-4 transition-transform duration-500 will-change-transform select-none"
       >
         <div
           className="special-element relative rounded-2xl h-full aspect-square overflow-hidden shadow-lg dark:shadow-fk-darkGray pointer-events-none"

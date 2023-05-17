@@ -20,6 +20,7 @@ const Projects = ({ projects }: Props) => {
         {...DefaultSeo}
         canonical={`${defaultValues.url}${router.asPath}`}
         title={`${defaultValues.templateTitle} Projects`}
+        description="Welcome to my Projects page, where I proudly showcase a comprehensive collection of my past work. Explore this curated portfolio featuring a diverse range of projects, including a cinema management software, an e-commerce website, an archive app for doctors, and more. Each project reflects my expertise as a full-stack engineer, utilizing cutting-edge technologies like React, Next.js, Node.js, and WordPress. From captivating user interfaces to seamless functionalities, these projects highlight my commitment to delivering exceptional web solutions. Immerse yourself in this showcase of my innovative work and witness the transformative power of technology in action."
       />
       <Layout>
         <section id="projects" className="md:pt-24 pt-12 p-4">
