@@ -8,6 +8,7 @@ import { FiArrowUp } from "react-icons/fi";
 import "../styles/globals.css";
 import Head from "next/head";
 import { Analytics } from "@vercel/analytics/react";
+import Script from "next/script";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const SCROLL_THREASH_HOLD = 150;
@@ -40,6 +41,17 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <>
+      <Script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-B46Y84WV08"
+      ></Script>
+      <Script>
+        {` window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-B46Y84WV08');`}
+      </Script>
       <Head>
         <meta
           name="viewport"
