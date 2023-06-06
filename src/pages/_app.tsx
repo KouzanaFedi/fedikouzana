@@ -43,9 +43,10 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <Script
         async
+        id="gtag"
         src="https://www.googletagmanager.com/gtag/js?id=G-B46Y84WV08"
       ></Script>
-      <Script>
+      <Script id="dataLayer">
         {` window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
