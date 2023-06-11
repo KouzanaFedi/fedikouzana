@@ -91,6 +91,8 @@ const Footer = () => {
           <Link href={Settings.LINKEDIN_URI} rel="noreferrer">
             <a
               target="_blank"
+              title="LinkedIn"
+              aria-label="LinkedIn"
               className="text-xl hover:text-blue-700"
               rel="noreferrer"
             >
@@ -101,6 +103,8 @@ const Footer = () => {
           <Link href={Settings.GITHUB_URI} rel="noreferrer">
             <a
               target="_blank"
+              title="Github"
+              aria-label="Github"
               className="text-xl hover:text-gray-800"
               rel="noreferrer"
             >
@@ -111,6 +115,8 @@ const Footer = () => {
           <Link href={Settings.UPWORK_URI} rel="noreferrer">
             <a
               target="_blank"
+              title="Upwork"
+              aria-label="Upwork"
               className="text-xl hover:text-green-500"
               rel="noreferrer"
             >
