@@ -1,5 +1,5 @@
 export const LINKEDIN_URI = "https://www.linkedin.com/in/fedi-kouzana-92aa9a190/";
-export const EMAIL = "fedi.kouzana1@gmail.com";
+export const EMAIL = "fedi@kouzana.com";
 
 export const DOMAIN_NAME = "https://fedi.kouzana.com/";
 
@@ -15,6 +15,6 @@ export type HeaderItem = {
 export const HEADER_ITEMS: HeaderItem[] = [
     { label: "Home", link: "/" },
     { label: "Portfolio", link: "/projects" },
-    { label: "Career", link: "/#carrer" },
+    { label: "Career", link: "/#career" },
     { label: "Contact", link: "/#contact-me" },
 ];

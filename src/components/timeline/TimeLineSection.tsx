@@ -12,10 +12,10 @@ const TimeLineSection = ({ academic, professional }: Props) => {
   const [proTimeLine, setProTimeLine] = React.useState<boolean>(true);
 
   return (
-    <section id="carrer" className="pt-24 md:p-4 md:pt-24">
+    <section id="career" className="pt-24 md:p-4 md:pt-24">
       <div className="container mx-auto md:px-8 space-y-12">
         <h2 className="text-fk-black-blue dark:text-fk-white text-4xl text-center md:text-start md:text-5xl font-bold">
-          My carrer so far
+          My career so far
         </h2>
         <motion.div
           initial={{
