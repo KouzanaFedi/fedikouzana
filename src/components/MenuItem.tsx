@@ -34,11 +34,9 @@ const MenuItem = ({ label, link }: Props) => {
       }}
     >
       <Link href={link}>
-        <a>
-          <span className="relative text-fk-black-blue dark:text-fk-white after:content-[''] after:absolute after:left-1/2 after:-bottom-1 after:w-0 after:h-px after:bg-fk-black-blue dark:after:bg-fk-white after:transition-all group-hover:after:w-full group-hover:after:left-0">
-            {label}
-          </span>
-        </a>
+        <span className="relative text-fk-black-blue dark:text-fk-white after:content-[''] after:absolute after:left-1/2 after:-bottom-1 after:w-0 after:h-px after:bg-fk-black-blue dark:after:bg-fk-white after:transition-all group-hover:after:w-full group-hover:after:left-0">
+          {label}
+        </span>
       </Link>
     </li>
   );

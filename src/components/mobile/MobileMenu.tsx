@@ -15,6 +15,7 @@ const MobileMenu = ({ menu, closeMenu }: Props) => {
   React.useEffect(() => {
     blockScroll();
     return () => allowScroll();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

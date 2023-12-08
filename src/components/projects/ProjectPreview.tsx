@@ -70,58 +70,58 @@ const ProjectPreview = ({
         rootRef.current.removeEventListener("mouseleave", mouseLeave);
       }
     };
-  }, [rootRef.current]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
-    <Link href={`/projects/${alias}`}>
-      <a
-        ref={rootRef}
-        className="group inline-block rotate3d relative w-full h-full pl-8 lg:pl-14 pb-4 transition-transform duration-500 will-change-transform select-none"
+    <Link
+      ref={rootRef}
+      className="group inline-block rotate3d relative w-full h-full pl-8 lg:pl-14 pb-4 transition-transform duration-500 will-change-transform select-none"
+      href={`/projects/${alias}`}
+    >
+      <div
+        className="special-element relative rounded-2xl h-full aspect-square overflow-hidden shadow-lg dark:shadow-fk-darkGray pointer-events-none"
+        onMouseOver={() => {
+          setHover(true);
+        }}
+        onMouseLeave={() => {
+          setHover(false);
+        }}
       >
-        <div
-          className="special-element relative rounded-2xl h-full aspect-square overflow-hidden shadow-lg dark:shadow-fk-darkGray pointer-events-none"
-          onMouseOver={() => {
-            setHover(true);
-          }}
-          onMouseLeave={() => {
-            setHover(false);
-          }}
-        >
-          <Image
-            src={img.url}
-            height={img.height}
-            width={img.width}
-            alt={img.basename}
-          />
-          <div className="absolute z-10 top-0 w-full h-full bg-gradient-to-tr from-white dark:from-black to-black/0" />
-        </div>
-        <div
-          className="special-element w-2/3 lg:w-1/2 absolute left-0 bottom-8 z-20 flex flex-col gap-4 info-deth pointer-events-none"
-          onMouseOver={() => {
-            setHover(true);
-          }}
-          onMouseLeave={() => {
-            setHover(false);
-          }}
-        >
-          <Heading className="font-black lg:text-2xl uppercase text-fk-black-blue dark:text-fk-white">
-            {title}
-          </Heading>
-          <div className="py-0.5 bg-fk-green w-full" />
-          <div className="flex items-center gap-8">
-            <span className="text-fk-white-lighter text-xs md:text-sm">
-              {order.toString().padStart(2, "0")}
-            </span>
+        <Image
+          src={img.url}
+          height={img.height}
+          width={img.width}
+          alt={img.basename}
+        />
+        <div className="absolute z-10 top-0 w-full h-full bg-gradient-to-tr from-white dark:from-black to-black/0" />
+      </div>
+      <div
+        className="special-element w-2/3 lg:w-1/2 absolute left-0 bottom-8 z-20 flex flex-col gap-4 info-deth pointer-events-none"
+        onMouseOver={() => {
+          setHover(true);
+        }}
+        onMouseLeave={() => {
+          setHover(false);
+        }}
+      >
+        <Heading className="font-black lg:text-2xl uppercase text-fk-black-blue dark:text-fk-white">
+          {title}
+        </Heading>
+        <div className="py-0.5 bg-fk-green w-full" />
+        <div className="flex items-center gap-8">
+          <span className="text-fk-white-lighter text-xs md:text-sm">
+            {order.toString().padStart(2, "0")}
+          </span>
 
-            <FiArrowRight
-              className={`text-fk-white-lighter transition-transform duration-200 ease-in-out ${
-                hover ? "translate-x-2" : ""
-              }`}
-              size={18}
-            />
-          </div>
+          <FiArrowRight
+            className={`text-fk-white-lighter transition-transform duration-200 ease-in-out ${
+              hover ? "translate-x-2" : ""
+            }`}
+            size={18}
+          />
         </div>
-      </a>
+      </div>
     </Link>
   );
 };

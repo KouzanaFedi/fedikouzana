@@ -94,15 +94,11 @@ export default function Home({ homeData }: Props) {
                       download={"resume.pdf"}
                       href={homeData.resume.url}
                       rel="noreferrer"
+                      target="_blank"
+                      className="flex justify-center items-center gap-4 px-10 py-4 w-64"
                     >
-                      <a
-                        rel="noreferrer"
-                        target="_blank"
-                        className="flex justify-center items-center gap-4 px-10 py-4 w-64"
-                      >
-                        <span className="group-hover:z-30">My resume</span>
-                        <FiDownload className="group-hover:z-30" size={24} />
-                      </a>
+                      <span className="group-hover:z-30">My resume</span>
+                      <FiDownload className="group-hover:z-30" size={24} />
                     </Link>
                   </MagneticButton>
                 </motion.div>
@@ -178,11 +174,12 @@ export default function Home({ homeData }: Props) {
               <ProjectList list={homeData.featuredProjects} />
               <div className="flex justify-center items-center">
                 <MagneticButton>
-                  <Link href="/projects">
-                    <a className="flex items-center gap-4 text-fk-gray px-10 py-4">
-                      <span>See more projects</span>
-                      <FiChevronRight size={24} />
-                    </a>
+                  <Link
+                    className="flex items-center gap-4 text-fk-gray px-10 py-4"
+                    href="/projects"
+                  >
+                    <span>See more projects</span>
+                    <FiChevronRight size={24} />
                   </Link>
                 </MagneticButton>
               </div>

@@ -8,7 +8,7 @@ import { FiArrowUp } from "react-icons/fi";
 import "../styles/globals.css";
 import Head from "next/head";
 import { Analytics } from "@vercel/analytics/react";
-import Script from "next/script";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const SCROLL_THREASH_HOLD = 150;
@@ -52,6 +52,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           <Component {...pageProps} />
         </AnimatePresence>
         <Analytics />
+        <SpeedInsights />
         {display && !isTouchScreen && <Cursor />}
         <div
           id="back-to-top"

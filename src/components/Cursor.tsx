@@ -109,6 +109,7 @@ const Cursor = () => {
       document.removeEventListener("mousemove", mouseMoveEvent);
       cancelAnimationFrame(requestRef.current);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

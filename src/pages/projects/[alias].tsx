@@ -60,14 +60,10 @@ const Project = ({ projectData, nextProject, prevProject }: Props) => {
         >
           <div className="flex items-center text-fk-green-darker mb-4 justify-end gap-2 -mt-4 lg:-mr-8 -mr-4">
             <Link href={`/projects/${prevProject}`}>
-              <a>
-                <FiChevronLeft size={40} />
-              </a>
+              <FiChevronLeft size={40} />
             </Link>
             <Link href={`/projects/${nextProject}`}>
-              <a>
-                <FiChevronRight size={40} />
-              </a>
+              <FiChevronRight size={40} />
             </Link>
           </div>
           <h1 className="font-black text-fk-gray dark:text-fk-white text-3xl lg:text-3xl uppercase leading-tight after:h-1 after:w-1/2 after:bg-fk-green after:block after:my-6">
@@ -133,7 +129,12 @@ const Project = ({ projectData, nextProject, prevProject }: Props) => {
         >
           {projectData.screenshots.map((sc, index) => (
             <div key={index} className="w-full h-full">
-              <Image src={sc.url} width={sc.width} height={sc.height} />
+              <Image
+                src={sc.url}
+                alt={sc.basename}
+                width={sc.width}
+                height={sc.height}
+              />
             </div>
           ))}
         </motion.div>

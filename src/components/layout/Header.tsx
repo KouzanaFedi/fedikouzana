@@ -4,14 +4,13 @@ import Link from "next/link";
 import MenuItem from "../MenuItem";
 import { KEYS, THEMES } from "@/utils";
 import Image from "next/image";
-import wihteLogo from "~/logo.svg";
-import blackLogo from "~/logo-black.svg";
 import lightIcon from "~/light.svg";
 import darkIcon from "~/dark.svg";
 import { HamburgerMenu } from "../mobile/HamburgerMenu";
 import MobileMenu from "../mobile/MobileMenu";
 import { AnimatePresence } from "framer-motion";
 import { HEADER_ITEMS } from "@/utils/settings";
+import Branding from "./Branding";
 
 const Header = () => {
   const SCROLL_THREASH_HOLD = 90;
@@ -54,15 +53,8 @@ const Header = () => {
         } transition-colors duration-300`}
       >
         <div className="container mx-auto flex justify-between items-center px-4 py-6">
-          <Link href={"/"}>
-            <a className="w-40 md:w-64 cursor-pointer hidden dark:block">
-              <Image src={wihteLogo} alt="<KOUZANA/>" />
-            </a>
-          </Link>
-          <Link href={"/"}>
-            <a className="w-40 md:w-64 cursor-pointer dark:hidden">
-              <Image src={blackLogo} alt="<KOUZANA/>" />
-            </a>
+          <Link className="w-40 md:w-64 cursor-pointer" href={"/"}>
+            <Branding />
           </Link>
           <div className="flex items-center gap-12">
             <ul className="hidden items-center gap-8 lg:flex list-none">

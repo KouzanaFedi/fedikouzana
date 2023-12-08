@@ -16,6 +16,7 @@ const TechnologyIcon = ({ label, logo }: Props) => {
           <div className="relative w-8 aspect-square group">
             <Image
               src={logo.url}
+              alt={logo.basename}
               height={logo.height}
               width={logo.width}
               className="w-full h-full"

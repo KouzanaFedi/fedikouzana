@@ -41,23 +41,23 @@ const Footer = () => {
             </h2>
             <div className="flex flex-col gap-4 md:flex-row">
               <MagneticButtonSecondary>
-                <Link href={Settings.LINKEDIN_URI} rel="noreferrer">
-                  <a
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex items-center justify-center gap-4 px-10 w-full py-4"
-                  >
-                    <span>Get in touch</span>
-                    <SiLinkedin size={24} />
-                  </a>
+                <Link
+                  href={Settings.LINKEDIN_URI}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center justify-center gap-4 px-10 w-full py-4"
+                >
+                  <span>Get in touch</span>
+                  <SiLinkedin size={24} />
                 </Link>
               </MagneticButtonSecondary>
               <MagneticButtonSecondary variant="outlined">
-                <Link href={`mailto:${Settings.EMAIL}`}>
-                  <a className="flex items-center gap-4 px-10 py-4">
-                    <span>Leave me an e-mail</span>
-                    <HiOutlineMail size={24} />
-                  </a>
+                <Link
+                  className="flex items-center gap-4 px-10 py-4"
+                  href={`mailto:${Settings.EMAIL}`}
+                >
+                  <span>Leave me an e-mail</span>
+                  <HiOutlineMail size={24} />
                 </Link>
               </MagneticButtonSecondary>
             </div>
@@ -78,50 +78,46 @@ const Footer = () => {
           <FooterIcon icon={SiDatocms} label={"DatoCMS"} />
         </div>
         <div className="flex items-center gap-x-1">
-          <Link href={Settings.PORTFOLIO_SOURCE_CODE} rel="noreferrer">
-            <a
-              target="_blank"
-              rel="noreferrer"
-              className="underline underline-offset-4"
-            >
-              View Source
-            </a>
+          <Link
+            target="_blank"
+            className="underline underline-offset-4"
+            href={Settings.PORTFOLIO_SOURCE_CODE}
+            rel="noreferrer"
+          >
+            View Source
           </Link>
           <span> - </span>
-          <Link href={Settings.LINKEDIN_URI} rel="noreferrer">
-            <a
-              target="_blank"
-              title="LinkedIn"
-              aria-label="LinkedIn"
-              className="text-xl hover:text-blue-700"
-              rel="noreferrer"
-            >
-              <ImLinkedin2 />
-            </a>
+          <Link
+            target="_blank"
+            title="LinkedIn"
+            aria-label="LinkedIn"
+            className="text-xl hover:text-blue-700"
+            href={Settings.LINKEDIN_URI}
+            rel="noreferrer"
+          >
+            <ImLinkedin2 />
           </Link>
           <span> | </span>
-          <Link href={Settings.GITHUB_URI} rel="noreferrer">
-            <a
-              target="_blank"
-              title="Github"
-              aria-label="Github"
-              className="text-xl hover:text-gray-800"
-              rel="noreferrer"
-            >
-              <ImGithub />
-            </a>
+          <Link
+            target="_blank"
+            title="Github"
+            aria-label="Github"
+            className="text-xl hover:text-gray-800"
+            rel="noreferrer"
+            href={Settings.GITHUB_URI}
+          >
+            <ImGithub />
           </Link>
           <span> | </span>
-          <Link href={Settings.UPWORK_URI} rel="noreferrer">
-            <a
-              target="_blank"
-              title="Upwork"
-              aria-label="Upwork"
-              className="text-xl hover:text-green-500"
-              rel="noreferrer"
-            >
-              <SiUpwork />
-            </a>
+          <Link
+            target="_blank"
+            title="Upwork"
+            aria-label="Upwork"
+            className="text-xl hover:text-green-500"
+            href={Settings.UPWORK_URI}
+            rel="noreferrer"
+          >
+            <SiUpwork />
           </Link>
         </div>
       </div>
