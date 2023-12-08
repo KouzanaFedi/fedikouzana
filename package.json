@@ -1,6 +1,8 @@
 {
   "name": "fedikouzana",
-  "version": "0.1.0",
+  "version": "1.2.0",
+  "author": "Fedi Kouzana",
+  "description": "Visit live site https://fedi.kouzana.com",
   "private": true,
   "scripts": {
     "dev": "next dev",

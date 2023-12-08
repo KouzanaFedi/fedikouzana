@@ -20,6 +20,7 @@ const Layout = ({ children }: Props) => {
             alt="bg-mesh"
             className="blur-xl w-full "
             priority
+            quality={40}
           />
         </div>
         <div className="absolute top-0 dark:opacity-0 transition-opacity w-full">
@@ -28,6 +29,7 @@ const Layout = ({ children }: Props) => {
             alt="bg-mesh"
             className="blur-xl w-full "
             priority
+            quality={40}
           />
         </div>
       </div>

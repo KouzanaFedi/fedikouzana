@@ -53,7 +53,7 @@ const Header = () => {
         } transition-colors duration-300`}
       >
         <div className="container mx-auto flex justify-between items-center px-4 py-6">
-          <Link className="w-40 md:w-64 cursor-pointer" href={"/"}>
+          <Link aria-label="<KOUZANA/> branding" className="w-40 md:w-64 cursor-pointer" href={"/"}>
             <Branding />
           </Link>
           <div className="flex items-center gap-12">
