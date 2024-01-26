@@ -48,7 +48,7 @@ const Cursor = () => {
     toggleCursorVisibility();
 
     endX.current = e.pageX;
-    endY.current = e.pageY;
+    endY.current = e.pageY - window.scrollY;
 
     innerRef.current.style.top = endY.current + "px";
     innerRef.current.style.left = endX.current + "px";
